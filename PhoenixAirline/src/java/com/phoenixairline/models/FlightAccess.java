@@ -132,6 +132,44 @@ public class FlightAccess {
         }
         return flight_details;
     }
+    public List searchOneData(Flight flightBean) {
+        List searchFlight_details = new ArrayList();
+        con = ConnectToDB.createConnection();
+
+        int flightId = Integer.parseInt(flightBean.getFlight_id());
+        //filter value accoridng to select category and 
+        try {
+            statement = con.createStatement();
+
+            resultSet = statement.executeQuery("SELECT * FROM flight WHERE id='" + flightId + "';");
+            while (resultSet.next()) {
+                int id_db = resultSet.getInt("id");
+                String takeoff_airport_db = resultSet.getString("takeoff_airport");
+                String takeoff_time_db = resultSet.getString("takeoff_time");
+                String takeoff_date_db = resultSet.getString("takeoff_date");
+                String landing_airport_db = resultSet.getString("landing_airport");
+                String landing_time_db = resultSet.getString("landing_time");
+                String landing_date_db = resultSet.getString("landing_date");
+                int gate_db = resultSet.getInt("gate");
+                float cost_db = resultSet.getFloat("cost");
+                String aircraft_flight_db = resultSet.getString("aircraft_flight");
+
+                searchFlight_details.add(id_db);
+                searchFlight_details.add(takeoff_airport_db);
+                searchFlight_details.add(takeoff_time_db);
+                searchFlight_details.add(takeoff_date_db);
+                searchFlight_details.add(landing_airport_db);
+                searchFlight_details.add(landing_time_db);
+                searchFlight_details.add(landing_date_db);
+                searchFlight_details.add(gate_db);
+                searchFlight_details.add(cost_db);
+                searchFlight_details.add(aircraft_flight_db);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return searchFlight_details;
+    }
 
     public List searchData(Flight flightBean) {
         List searchFlight_details = new ArrayList();

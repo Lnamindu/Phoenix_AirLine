@@ -13,8 +13,6 @@
     </head>
     <body>
         
-   
-        
         <!--Navigation-->
     <div class="container">
       <div class="navigation">
@@ -78,7 +76,7 @@
             
           </div>
         </form>
-        
+            
         
 <!--        Flights-->
         
@@ -112,7 +110,7 @@
                     while (itr.hasNext()) {
             %>
             <tr>
-        <form action="CreateTicketServlet" method="POST">
+                <%! int i=1;%>
                 <td><input type="hidden" name="flightId" value="<%=itr.next()%>"/></td>
                 <td><%=itr.next()%></td>
                 <td><%=itr.next()%></td>
@@ -123,9 +121,21 @@
                 <td><%=itr.next()%></td>
                 <td><%=itr.next()%></td>
                 <td><%=itr.next()%></td>
-                <td><input type="submit" class="status ok" value="Book now" /></td>
-        </form>
+                
+                <td>
+                    <form action="SearchFlightInfoServlet" method="post">
+                        <input type="hidden" value="searchOneFlight" name="oneFlight">
+                        <input type="hidden" value="<%=i%>" name="flightId">
+                        <input type="submit" class="status ok" value="Update" /> <br> <br>
+                    </form>
 
+                    <form action="" method="">
+                        
+                           <input type="submit" class="status not" value="Delete" />
+                    </form>
+                 </td>
+
+                 <%i++;%>
                 
             </tr>
             <%}

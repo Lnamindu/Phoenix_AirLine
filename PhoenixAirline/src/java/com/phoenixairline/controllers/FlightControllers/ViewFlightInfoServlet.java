@@ -31,46 +31,110 @@ public class ViewFlightInfoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 
+        PrintWriter out=null;
+        try {
             String ref=request.getHeader("Referer");
             String page=ref.substring(ref.lastIndexOf("/")+1,ref.lastIndexOf(""));
-            
-//            PrintWriter out;
-//        try {
-//            out = response.getWriter();
-//             out.println(page);
-//        } catch (IOException ex) {
-//            Logger.getLogger(ViewFlightInfoServlet.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-           
-            
+            out = response.getWriter();
+            out.println(page);
             
             if(page.equals("LoginServlet")){
                 try {
-                        FlightAccess flightAccess = new FlightAccess();
-                        List flightDetails = flightAccess.viewAllFlightDetails();
-
-                        request.setAttribute("result", flightDetails);
-
-                        RequestDispatcher rd = request.getRequestDispatcher("flightsManagement.jsp");
-                        rd.forward(request, response);
-                    } catch (ServletException | IOException ex) {
-                        System.out.println(ex);
-                    }
+                    FlightAccess flightAccess = new FlightAccess();
+                    List flightDetails = flightAccess.viewAllFlightDetails();
+                    
+                    request.setAttribute("result", flightDetails);
+                    
+                    RequestDispatcher rd = request.getRequestDispatcher("flightsManagement.jsp");
+                    rd.forward(request, response);
+                } catch (ServletException | IOException ex) {
+                    System.out.println(ex);
+                }
+//                
             }else if(page.equals("AllFlightDetails.jsp")){
                 try {
-                        FlightAccess flightAccess = new FlightAccess();
-                        List flightDetails = flightAccess.viewAllFlightDetails();
-
-                        request.setAttribute("result", flightDetails);
-
-                        RequestDispatcher rd = request.getRequestDispatcher("AllFlightDetails.jsp");
-                        rd.forward(request, response);
-                    } catch (ServletException | IOException ex) {
-                        System.out.println(ex);
-                    }
+                    FlightAccess flightAccess = new FlightAccess();
+                    List flightDetails = flightAccess.viewAllFlightDetails();
+                    
+                    request.setAttribute("result", flightDetails);
+                    
+                    RequestDispatcher rd = request.getRequestDispatcher("flightsManagement.jsp");
+                    rd.forward(request, response);
+                } catch (ServletException | IOException ex) {
+                    System.out.println(ex);
+                }
+            }else if(page.equals("staffg1.jsp")){
+                try {
+                    FlightAccess flightAccess = new FlightAccess();
+                    List flightDetails = flightAccess.viewAllFlightDetails();
+                    
+                    request.setAttribute("result", flightDetails);
+                    
+                    RequestDispatcher rd = request.getRequestDispatcher("flightsManagement.jsp");
+                    rd.forward(request, response);
+                } catch (ServletException | IOException ex) {
+                    System.out.println(ex);
+                }
+            }else if(page.equals("ViewFlightInfoServlet")){
+                try {
+                    FlightAccess flightAccess = new FlightAccess();
+                    List flightDetails = flightAccess.viewAllFlightDetails();
+                    
+                    request.setAttribute("result", flightDetails);
+                    
+                    RequestDispatcher rd = request.getRequestDispatcher("flightsManagement.jsp");
+                    rd.forward(request, response);
+                } catch (ServletException | IOException ex) {
+                    System.out.println(ex);
+                }
+            }   
+            else if(page.equals("SearchUsers_Servlet")){
+                try {
+                    FlightAccess flightAccess = new FlightAccess();
+                    List flightDetails = flightAccess.viewAllFlightDetails();
+                    
+                    request.setAttribute("result", flightDetails);
+                    
+                    RequestDispatcher rd = request.getRequestDispatcher("flightsManagement.jsp");
+                    rd.forward(request, response);
+                } catch (ServletException | IOException ex) {
+                    System.out.println(ex);
+                }
+            } 
+            else if(page.equals("SearchFlightInfoServlet")){
+                try {
+                    FlightAccess flightAccess = new FlightAccess();
+                    List flightDetails = flightAccess.viewAllFlightDetails();
+                    
+                    request.setAttribute("result", flightDetails);
+                    
+                    RequestDispatcher rd = request.getRequestDispatcher("flightsManagement.jsp");
+                    rd.forward(request, response);
+                } catch (ServletException | IOException ex) {
+                    System.out.println(ex);
+                }
+            } 
+            
+            
+            else{
+                try {
+                    FlightAccess flightAccess = new FlightAccess();
+                    List flightDetails = flightAccess.viewAllFlightDetails();
+                    
+                    request.setAttribute("result", flightDetails);
+                    
+                    RequestDispatcher rd = request.getRequestDispatcher("AllFlightDetails.jsp");
+                    rd.forward(request, response);
+                } catch (ServletException | IOException ex) {
+                    System.out.println(ex);
+                }
             }
+        } catch (IOException ex) {
+            Logger.getLogger(ViewFlightInfoServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            out.close();
+        }
      
-        
 
 
     }

@@ -23,11 +23,10 @@
     %>
     <%}%>
     <body>
-        
-        
 
         <div class="container">
-      <div class="navigation">
+        
+        <div class="navigation">
         <div class="logo">
             <img src="media/Phoenixlogo.png" style="width: 200px; height:auto ; padding-top: 1vh;" alt="">
         </div>
@@ -35,43 +34,27 @@
             <li></li>
             <li>
                 <a href="<%=request.getContextPath()%>/ViewFlightInfoServlet">
-                    <span class="title">Flights Management</span>
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                    <span class="title">Flight Management</span>
                 </a>
             </li>
             <li>
                 <a href="staffg1.jsp">
+                    <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
                     <span class="title">User Management</span>
                 </a>
             </li>
-<!--            <li>
-                <a href="#">
-                    <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
-                    <span class="title">Messages</span>
-                </a>
-            </li>-->
             <li>
-                <a href="html/Userprofile.html">
+                <a href="html/Userprofile.jsp">
+                    <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
                     <span class="title">Ticket Management</span>
                 </a>
             </li>
-<!--            <li>
-                <a href="#">
-                    <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
-                    <span class="title">Settings</span>
-                </a>
-            </li>-->
-            <!-- <li>
-                <a href="#">
-                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
-                    <span class="title">Password</span>
-                </a>
-            </li> -->
             <li>
-    <a href="<%=request.getContextPath()%>/LogoutServlet">
-        <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
-        <span class="title">Sign Out</span>
-    </a>
-
+                <a href="<%=request.getContextPath()%>/LogoutServlet">
+                    <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                    <span class="title">Sign Out</span>
+                </a>
             </li>
            
         </ul>
