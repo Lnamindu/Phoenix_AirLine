@@ -34,7 +34,7 @@
         <ul>
             <li></li>
             <li>
-                <a href="flightsManagement.jsp">
+                <a href="<%=request.getContextPath()%>/ViewFlightInfoServlet">
                     <span class="title">Flights Management</span>
                 </a>
             </li>
@@ -84,7 +84,7 @@
  
             <!--===========Main=============-->
       <div class="main">
-        <form  action="SearchUsers_sServlet" method="POST">
+        <form  action="<%=request.getContextPath()%>/SearchUsers_Servlet" method="POST">
           <div class="topbar">
               
             <div class="dropdown"><input class="drop-btn" type="text" name="search_user" placeholder="User Name">

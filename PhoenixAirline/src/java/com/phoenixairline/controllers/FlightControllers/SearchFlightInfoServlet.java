@@ -26,6 +26,16 @@ public class SearchFlightInfoServlet extends HttpServlet {
         request.setAttribute("result", SearchFlightDetails);
         RequestDispatcher rd = request.getRequestDispatcher("flightsManagement.jsp");
         rd.forward(request, response);
+
+//            String flightId=request.getParameter("search_flight");
+//            Flight flightBean = new Flight(flightId);
+//            
+//            FlightAccess flightAccess = new FlightAccess();
+//            List SearchFlightDetails = flightAccess.searchData(flightBean);
+//            request.setAttribute("result", SearchFlightDetails);
+//            RequestDispatcher rd = request.getRequestDispatcher("flightsManagement.jsp");
+//            rd.forward(request, response);            
+
     }
 
 }

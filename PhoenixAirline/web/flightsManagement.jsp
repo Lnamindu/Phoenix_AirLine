@@ -1,31 +1,22 @@
+
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
     <head>
-        
-        
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flight Informations</title>
-    <!--main (css)-->
-    <link rel="stylesheet" href="css/main.css" />
-    <!--(css)-->
-    <link rel="stylesheet" href="css/Flightinfo.css" />
-
-
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/main.css" rel="stylesheet" type="text/css"/>
+        <link href="css/Flightinfo.css" rel="stylesheet" type="text/css"/>
+        <title>All Flight Details</title>
     </head>
-    <% //In case, if StaffG1 session is not set, redirect to Login page
-        if ((request.getSession(false).getAttribute("staffg1") == null)) {
-    %>
-    <%}%>
     <body>
         
-
-        <div class="container">
+   
+        
+        <!--Navigation-->
+    <div class="container">
       <div class="navigation">
         <div class="logo">
             <img src="media/Phoenixlogo.png" style="width: 200px; height:auto ; padding-top: 1vh;" alt="">
@@ -33,193 +24,192 @@
         <ul>
             <li></li>
             <li>
-                <a href="flightsManagement.jsp">
-                    <span class="title">Flights Management</span>
+                
+                <a href="<%=request.getContextPath()%>/ViewFlightInfoServlet">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                    <span class="title">Flight Information</span>
                 </a>
             </li>
             <li>
-                <a href="staffg1.jsp">
-                    <span class="title">User Management</span>
+                <a href="<%=request.getContextPath()%>/SelectTicketServlet">
+                    <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+                    <span class="title">Reservations</span>
                 </a>
             </li>
-<!--            <li>
-                <a href="#">
-                    <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
-                    <span class="title">Messages</span>
-                </a>
-            </li>-->
             <li>
-                <a href="html/Userprofile.html">
-                    <span class="title">Ticket Management</span>
+                <a href="html/Userprofile.jsp">
+                    <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+                    <span class="title">Profile</span>
                 </a>
             </li>
-<!--            <li>
-                <a href="#">
-                    <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
-                    <span class="title">Settings</span>
-                </a>
-            </li>-->
-            <!-- <li>
-                <a href="#">
-                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
-                    <span class="title">Password</span>
-                </a>
-            </li> -->
             <li>
-    <a href="<%=request.getContextPath()%>/LogoutServlet">
-        <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
-        <span class="title">Sign Out</span>
-    </a>
-
+                <a href="<%=request.getContextPath()%>/LogoutServlet">
+                    <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                    <span class="title">Sign Out</span>
+                </a>
             </li>
            
         </ul>
     </div>
-            
-            <!--end navbar-->
-            
-
-       
- 
-            <!--===========Main=============-->
-      <div class="main">
-        <form  action="SearchFlightInfoServlet" method="POST">
+        
+        <div class="main">
+        <form action="SearchFlightInfoServlet" method="POST">
           <div class="topbar">
-              SearchFlightInfoServlet
-               <div class="topbar">
-            <div class="dropdown">Departure Airport 
-                <select class="drop-btn" name="" id="">
-                  <option value="">country 1</option>
-                  <option value="">country 2</option>
-                  <option value="">country 3</option>
-                  <option value="">country 4</option>
-                </select>
+            <div class="dropdown">Takeoff Airport 
+                <select class="drop-btn" name="takeoff_airport" id="">
+                  <option value="Colombo">Colombo</option>
+                  <option value="London">London</option>
+                  <option value="Melbourne">Melbourne</option>
+               </select>
             </div>
-  
-            <div class="dropdown">Destination Airport 
-              <select class="drop-btn" name="" id="">
-                <option value="">country 1</option>
-                <option value="">country 2</option>
-                <option value="">country 3</option>
-                <option value="">country 4</option>
+   
+            <div class="dropdown">Landing Airport 
+              <select class="drop-btn" name="landing_airport" id="">
+                <option value="Colombo">Colombo</option>
+                <option value="South Africa">South Africa</option>
+                <option value="England">England</option>
               </select>
             </div>
   
-            <label for="" class="cal">Landing Date  <input type="date" id="cale" name="d-date" /></label>
-              <button class="drop-btn">Submit</button>
-              <button class="drop-btn">Reset</button>
-            
-          </div>
+              <input class="drop-btn" type="date" name="takeoff_date" value="" />
               
-            <div class="dropdown"><input class="drop-btn" type="text" name="search_user" placeholder="Flight Id">
-
-                
-                <button type="submit"  value="View Users" name="view_users" class="drop-btn">View ALl Flights</button>
-
-            </div>
-  
-<!--            <div class="dropdown">Destination Airport 
-              <select class="drop-btn" name="" id="">
-                <option value="">country 1</option>
-                <option value="">country 2</option>
-                <option value="">country 3</option>
-                <option value="">country 4</option>
-              </select>
-            </div>-->
-  
-            <!--<label for="" class="cal">Landing Date  <input type="date" id="cale" name="d-date" /></label>-->
+              <input class="drop-btn"  type="submit" value="Search" name="Search"/>
+                <input class="drop-btn"  type="reset" name="Cancel"/>
             
           </div>
         </form>
-          
-
-        <!--<div style="text-align: right"><a href="<%=request.getContextPath()%>/LogoutServlet">Logout</a></div>-->
-
-
-        <table border="1">
-            <thead>
-            </thead>
-        </table>
-            
-             <!--=============flight management============-->
+        
+        
+<!--        Flights-->
+        
         <div class="details">
           <div class="recent">
             <div class="cardheader">
-              <h2>Flight Management </h2>
-              <a href="AddUser.jsp" style="text-decoration: none" class="status ok">Add Flight</a>
+              <h2>Flights</h2>
+              <a href="#" class="btn">View All</a>
             </div>
+             
+        <table>
+            <thead style="box-shadow: 0 1px 10px black; padding: 20px">
+            <th></th>
+            <th>Takeoff Airport</th>
+            <th>Takeoff Time</th>
+            <th>Takeoff Date</th>
+            <th>Landing Airport</th>
+            <th>Landing Time</th>
+            <th>Landing Date</th>
+            <th>Gate</th>
+            <th>Cost</th>
+            <th>Aircraft</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            <%
+                if ((request.getAttribute("result") != null)) {
+                    List data = new ArrayList();
+                    data = (List) request.getAttribute("result");
+                    Iterator itr = data.iterator();
+                    while (itr.hasNext()) {
+            %>
+            <tr>
+        <form action="CreateTicketServlet" method="POST">
+                <td><input type="hidden" name="flightId" value="<%=itr.next()%>"/></td>
+                <td><%=itr.next()%></td>
+                <td><%=itr.next()%></td>
+                <td><%=itr.next()%></td>
+                <td><%=itr.next()%></td>
+                <td><%=itr.next()%></td>
+                <td><%=itr.next()%></td>
+                <td><%=itr.next()%></td>
+                <td><%=itr.next()%></td>
+                <td><%=itr.next()%></td>
+                <td><input type="submit" class="status ok" value="Book now" /></td>
+        </form>
 
-            <table>
-                <thead >
-                    <tr style="box-shadow: 0 1px 10px black; border-radius: 12px; line-height: 4vh">
-                  <td>Take Off Airport</td>
-                  <td>Take Off Sate</td>
-                  <td>Landing Airport</td>
-                  <td>Landing Time</td>
-                  <td>Landing Date</td>
-                  <td>Gate</td>
-                  <td>Cost</td>
-                  <td>Aircaft Flight</td>
-                </tr>
-              </thead>
+                
+            </tr>
+            <%}
+                }%>
+        </tbody>
+    </table>
 
-              <tbody>
-                  <%
-                      if ((request.getAttribute("result") != null)) {
-                        List user_list = new ArrayList();
-                        user_list = (List) request.getAttribute("result");
-                        Iterator it = user_list.iterator();
-                        while (it.hasNext()) {
-                  %>
-                  
+    <form action="CreateTicketServlet" method="POST">
+        <table border="1">
+            <%
+                if ((request.getAttribute("selectedResult") != null)) {
+                    List data = new ArrayList();
+                    data = (List) request.getAttribute("selectedResult");
+                    Iterator itr = data.iterator();
+                    while (itr.hasNext()) {
+            %>
+            <tbody>
                 <tr>
-                  <td><%=it.next()%></td>
-                    <td><%=it.next()%></td>
-                    <td><%=it.next()%></td>
-                    <td><%=it.next()%></td>
-                    <td><%=it.next()%></td>
-                     <td><%=it.next()%></td>
-                    <td><%=it.next()%></td>
-                    <td><%=it.next()%></td>
-
-                  <td>
-                      <form action="" method="POST">
-                          <input type="submit"  class="status ok" value="Update" />
-                      </form>
-                      <br>
-                      <form action="" method="POST">
-                          <input type="submit" class="status not" value="Delete" />
-
-                      </form>
-                    
-
-                  </td>
+                    <td>TO</td>
+                    <td><%=itr.next()%></td>
                 </tr>
-                 <%}
-                    }%>
-              </tbody>
-
-              
-            </table>
-          </div>
+                <tr>
+                    <td>Air Time</td>
+                    <td><%=itr.next()%></td>
+                </tr>
+                <tr>
+                    <td>Takeoff Date</td>
+                    <td><%=itr.next()%></td>
+                </tr>
+                <tr>
+                    <td>From</td>
+                    <td><%=itr.next()%></td>
+                </tr>
+                <tr>
+                    <td>Land Time</td>
+                    <td><%=itr.next()%></td>
+                </tr>
+                <tr>
+                    <td>Land Date</td>
+                    <td><%=itr.next()%></td>
+                </tr>
+                <tr>
+                    <td>Gate</td>
+                    <td><%=itr.next()%></td>
+                </tr>
+                <tr>
+                    <td>Cost</td>
+                    <td><%=itr.next()%></td>
+                </tr>
+                <tr>
+                    <td>Aircraft</td>
+                    <td><%=itr.next()%></td>
+                </tr>
+                <tr>
+                    <td>Class</td>
+                    <td><select name="class" required>
+                            <option value="101">1st class</option>
+                            <option value="102">Business</option>
+                            <option value="103">Economy</option>
+                        </select></td>
+                </tr>
+                <tr>
+                    <td>Seat</td>
+                    <td><select name="seatNumber" required>
+                            <option value="1">1A</option>
+                            <option value="2">B1</option>
+                            <option value="3">C1</option>
+                        </select></td>
+                </tr>
+                <tr>
+                    <td>Number of seats</td>
+                    <td><input type="number" name="seats" value="" size="3" /></td>
+                </tr>
+                <tr>
+                    <td><input type="reset" value="Cancel" /></td>
+                    <td><input type="submit" value="Book Reservation" /></td>
+                </tr>
+            </tbody>
+            <%}
+                }%>
+        </table>
+    </form>
         </div>
-      </div>
-    </div>
-
-             <!--========scripts=======-->
-    <script src="adminmain.js"></script>
-
-    <!--ionicons-->
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
-  
-            
-    </body>
+        </div>
+        </div>
+</body>
 </html>

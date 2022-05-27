@@ -75,6 +75,10 @@
         <servlet-name>updateUserInfoServlet</servlet-name>
         <servlet-class>updateUserInfoServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SearchUsers_Servlet</servlet-name>
+        <servlet-class>com.phoenixairline.controllers.usersControllers.SearchUsers_Servlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddFlightInfoServlet</servlet-name>
         <url-pattern>/AddFlightInfoServlet</url-pattern>
@@ -146,6 +150,10 @@
     <servlet-mapping>
         <servlet-name>updateUserInfoServlet</servlet-name>
         <url-pattern>/updateUserInfoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchUsers_Servlet</servlet-name>
+        <url-pattern>/SearchUsers_Servlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -1,8 +1,4 @@
-<%-- 
-    Document   : register
-    Created on : May 7, 2022, 2:40:14 PM
-    Author     : yasas
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -24,21 +20,22 @@
                    <br>
                     <label for="chk" aria-hidden="true">Add User</label><br>
                    
-                   <input type="text" name="first_name" placeholder="First Name" value=""  required=""/><br/>
-                <input type="text" name="last_name" placeholder="Last Name" value=""  required="" /><br/>
-                <input type="text" name="username" placeholder="User Name" value=""  required="" /><br/>
-                <input type="text" name="email" value="" placeholder="Email" required="" /><br/>
-                <input type="password" name="password" value="" placeholder="Password"  required=""/><br/>
-                <input type="password" name="r_password" placeholder="Re-Type Password" value="" required="" /><br/>
+                   <input type="text" name="first_name" placeholder="First Name" value=""  required=""/>
+                <input type="text" name="last_name" placeholder="Last Name" value=""  required="" />
+                <input type="text" name="username" placeholder="User Name" value=""  required="" />
+                <input type="text" name="email" value="" placeholder="Email" required="" />
+                <input type="password" name="password" value="" placeholder="Password"  required=""/>
+                <input type="password" name="r_password" placeholder="Re-Type Password" value="" required="" />
 <!--                <textarea name="address" rows="4" cols="50"  required=""></textarea><br/>
                 <input type="text" name="phone_number"  placeholder="Phone Number"value=""  required=""/><br/>
                  -->
-                <select name="role"  required="">
+                 <center>
+                     <select class="dropdown" name="role"  required="">
                     <option value="client">Client</option>
                     <option value="staffg1">Grade 1 Staff</option>
                     <option value="staffg2">Grade 2 Staff</option>
                     <!--                    <option value="admin">Admin</option>-->
-                </select><br/>
+                </select></center><br/>
                 <button type="submit">Sign Up</button>
 
             </form>

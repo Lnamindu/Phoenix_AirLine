@@ -1,8 +1,4 @@
-<%-- 
-    Document   : register
-    Created on : May 7, 2022, 2:40:14 PM
-    Author     : yasas
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

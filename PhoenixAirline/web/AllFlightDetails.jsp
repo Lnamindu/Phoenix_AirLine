@@ -1,8 +1,3 @@
-<%-- 
-    Document   : AllFlightDetails
-    Created on : May 20, 2022, 10:10:10 AM
-    Author     : dell
---%>
 
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>
