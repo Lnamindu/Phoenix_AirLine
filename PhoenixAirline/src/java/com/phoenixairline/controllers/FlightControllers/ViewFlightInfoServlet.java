@@ -20,8 +20,7 @@ public class ViewFlightInfoServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
-    
-//    SearchAndDeleteFlightInfo
+
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
@@ -115,7 +114,19 @@ public class ViewFlightInfoServlet extends HttpServlet {
                     System.out.println(ex);
                 }
             } 
-            
+             else if(page.equals("UpdateAndDeleteFlightServlet")){
+                try {
+                    FlightAccess flightAccess = new FlightAccess();
+                    List flightDetails = flightAccess.viewAllFlightDetails();
+                    
+                    request.setAttribute("result", flightDetails);
+                    
+                    RequestDispatcher rd = request.getRequestDispatcher("flightsManagement.jsp");
+                    rd.forward(request, response);
+                } catch (ServletException | IOException ex) {
+                    System.out.println(ex);
+                }
+            } 
             
             else{
                 try {
