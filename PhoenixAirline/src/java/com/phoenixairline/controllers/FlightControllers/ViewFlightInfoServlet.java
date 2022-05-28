@@ -37,7 +37,18 @@ public class ViewFlightInfoServlet extends HttpServlet {
             out = response.getWriter();
             out.println(page);
             
-            if(page.equals("LoginServlet")){
+            if(page.equals("LoginServlet") || 
+                    page.equals("AllFlightDetails.jsp") || 
+                    page.equals("staffg1.jsp") || 
+                    page.equals("ViewFlightInfoServlet") || 
+                    page.equals("ViewFlightInfoServlet") || 
+                    page.equals("SearchUsers_Servlet") || 
+                    page.equals("SearchUsers_Servlet") ||
+                    page.equals("SearchUsers_Servlet") ||
+                    page.equals("SearchFlightInfoServlet") ||
+                    page.equals("UpdateAndDeleteFlightServlet") ||
+                    page.equals("AddFlightInfoServlet") ||
+                    page.equals("addFlight.jsp") ){
                 try {
                     FlightAccess flightAccess = new FlightAccess();
                     List flightDetails = flightAccess.viewAllFlightDetails();
@@ -51,82 +62,7 @@ public class ViewFlightInfoServlet extends HttpServlet {
                     System.out.println(ex);
                 }
 //                
-            }else if(page.equals("AllFlightDetails.jsp")){
-                try {
-                    FlightAccess flightAccess = new FlightAccess();
-                    List flightDetails = flightAccess.viewAllFlightDetails();
-                    
-                    request.setAttribute("result", flightDetails);
-                    
-                    RequestDispatcher rd = request.getRequestDispatcher("flightsManagement.jsp");
-                    rd.forward(request, response);
-                } catch (ServletException | IOException ex) {
-                    System.out.println(ex);
-                }
-            }else if(page.equals("staffg1.jsp")){
-                try {
-                    FlightAccess flightAccess = new FlightAccess();
-                    List flightDetails = flightAccess.viewAllFlightDetails();
-                    
-                    request.setAttribute("result", flightDetails);
-                    
-                    RequestDispatcher rd = request.getRequestDispatcher("flightsManagement.jsp");
-                    rd.forward(request, response);
-                } catch (Exception ex) {
-                    System.out.println(ex);
-                }
-            }else if(page.equals("ViewFlightInfoServlet")){
-                try {
-                    FlightAccess flightAccess = new FlightAccess();
-                    List flightDetails = flightAccess.viewAllFlightDetails();
-                    
-                    request.setAttribute("result", flightDetails);
-                    
-                    RequestDispatcher rd = request.getRequestDispatcher("flightsManagement.jsp");
-                    rd.forward(request, response);
-                } catch (ServletException | IOException ex) {
-                    System.out.println(ex);
-                }
-            }   
-            else if(page.equals("SearchUsers_Servlet")){
-                try {
-                    FlightAccess flightAccess = new FlightAccess();
-                    List flightDetails = flightAccess.viewAllFlightDetails();
-                    
-                    request.setAttribute("result", flightDetails);
-                    
-                    RequestDispatcher rd = request.getRequestDispatcher("flightsManagement.jsp");
-                    rd.forward(request, response);
-                } catch (ServletException | IOException ex) {
-                    System.out.println(ex);
-                }
-            } 
-            else if(page.equals("SearchFlightInfoServlet")){
-                try {
-                    FlightAccess flightAccess = new FlightAccess();
-                    List flightDetails = flightAccess.viewAllFlightDetails();
-                    
-                    request.setAttribute("result", flightDetails);
-                    
-                    RequestDispatcher rd = request.getRequestDispatcher("flightsManagement.jsp");
-                    rd.forward(request, response);
-                } catch (ServletException | IOException ex) {
-                    System.out.println(ex);
-                }
-            } 
-             else if(page.equals("UpdateAndDeleteFlightServlet")){
-                try {
-                    FlightAccess flightAccess = new FlightAccess();
-                    List flightDetails = flightAccess.viewAllFlightDetails();
-                    
-                    request.setAttribute("result", flightDetails);
-                    
-                    RequestDispatcher rd = request.getRequestDispatcher("flightsManagement.jsp");
-                    rd.forward(request, response);
-                } catch (ServletException | IOException ex) {
-                    System.out.println(ex);
-                }
-            } 
+            }
             
             else{
                 try {

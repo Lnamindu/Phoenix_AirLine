@@ -49,121 +49,47 @@
         </thead>
         <tbody>
             
-            <%                
-                if ((request.getAttribute("result") != null)) {
-                    List data = new ArrayList();
-                    data = (List) request.getAttribute("result");
-                    Iterator itr = data.iterator();
-                    while (itr.hasNext()) {
-                    
-            %>
+          
             <tr>
-        <form action="UpdateAndDeleteFlightServlet" method="post">
+        <form action="AddFlightInfoServlet" method="post">
 
-            <td><input type="hidden" name="flightId" /></td>
-            <td> <input type="text" name="takeoff_airport" ></td>
-            <td> <input type="text" name="takeoff_time"></td>
-            <td> <input type="text" name="takeoff_date"></td>
-            <td> <input type="text" name="landing_airport"></td>
-            <td> <input type="text" name="landing_time"></td>
-            <td> <input type="text" name="landing_date">"></td>
-            <td> <input type="hidden" name="gate"></td>
-            <td> <input type="text" name="cost">"></td>
-            <td> <input type="hidden" name="aircraft_id">"></td>
+            <!--<td><input type="hidden" name="flightId" /></td>-->
+            <td>  <select class="drop-btn" name="takeoff_airport" id="">
+                    <option value="Colombo">Colombo</option>
+                    <option value="London">London</option>
+                    <option value="Melbourne">Melbourne</option>
+                 </select>
+            </td>
+            <td> <input type="date" class="drop-btn" name="takeoff_time"></td>
+            <td> <input type="text" class="drop-btn" name="takeoff_date"></td>
+            <td> <select class="drop-btn" name="landing_airport" id="">
+                    <option value="Colombo">Colombo</option>
+                    <option value="South Africa">South Africa</option>
+                    <option value="England">England</option>
+                </select>
+            </td>
+            <td> <input type="text" class="drop-btn" name="landing_time"></td>
+            <td> <input type="date" class="drop-btn" name="landing_date"></td>
+            <!--<td> <input type="hidden" name="gate"></td>-->
+            <td> <input type="text" class="drop-btn" name="cost""></td>
+            <!--<td> <input type="hidden" name="aircraft_id"></td>-->
                 
                 
                 <td>
                     
-                    <input type="submit" class="status ok" name="Update" value="Add"/> <br> <br>
+                    <input type="submit" style="padding: 10px 35px 10px 35px; border-radius: 30px  " class="status ok" name="AddFlight" value="Add"/> <br> <br>
                   
                 </td>
                  
             </form>
         
-                
 
                 
             </tr>
-            <%}
-                }%>
         </tbody>
     </table>
 
-    <form action="CreateTicketServlet" method="POST">
-        <table border="1">
-            <%
-                if ((request.getAttribute("selectedResult") != null)) {
-                    List data = new ArrayList();
-                    data = (List) request.getAttribute("selectedResult");
-                    Iterator itr = data.iterator();
-                    while (itr.hasNext()) {
-            %>
-            <tbody>
-                <tr>
-                    <td>TO</td>
-                    <td><%=itr.next()%></td>
-                </tr>
-                <tr>
-                    <td>Air Time</td>
-                    <td><%=itr.next()%></td>
-                </tr>
-                <tr>
-                    <td>Takeoff Date</td>
-                    <td><%=itr.next()%></td>
-                </tr>
-                <tr>
-                    <td>From</td>
-                    <td><%=itr.next()%></td>
-                </tr>
-                <tr>
-                    <td>Land Time</td>
-                    <td><%=itr.next()%></td>
-                </tr>
-                <tr>
-                    <td>Land Date</td>
-                    <td><%=itr.next()%></td>
-                </tr>
-                <tr>
-                    <td>Gate</td>
-                    <td><%=itr.next()%></td>
-                </tr>
-                <tr>
-                    <td>Cost</td>
-                    <td><%=itr.next()%></td>
-                </tr>
-                <tr>
-                    <td>Aircraft</td>
-                    <td><%=itr.next()%></td>
-                </tr>
-                <tr>
-                    <td>Class</td>
-                    <td><select name="class" required>
-                            <option value="101">1st class</option>
-                            <option value="102">Business</option>
-                            <option value="103">Economy</option>
-                        </select></td>
-                </tr>
-                <tr>
-                    <td>Seat</td>
-                    <td><select name="seatNumber" required>
-                            <option value="1">1A</option>
-                            <option value="2">B1</option>
-                            <option value="3">C1</option>
-                        </select></td>
-                </tr>
-                <tr>
-                    <td>Number of seats</td>
-                    <td><input type="number" name="seats" value="" size="3" /></td>
-                </tr>
-                <tr>
-                    <td><input type="reset" value="Cancel" /></td>
-                    <td><input type="submit" value="Book Reservation" /></td>
-                </tr>
-            </tbody>
-            <%}
-                }%>
-        </table>
-    </form>
+
         </div>
         </div>
         </div>

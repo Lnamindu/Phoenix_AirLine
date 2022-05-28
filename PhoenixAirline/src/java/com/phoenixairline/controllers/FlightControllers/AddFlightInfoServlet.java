@@ -2,11 +2,15 @@ package com.phoenixairline.controllers.FlightControllers;
 
 import com.phoenixairline.models.Flight;
 import com.phoenixairline.models.FlightAccess;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class AddFlightInfoServlet extends HttpServlet {
 
@@ -21,7 +25,6 @@ public class AddFlightInfoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        System.out.println("UP");
         response.setContentType("text/html");
         String FlightId = request.getParameter("flightId");
         System.out.println("Dwon");
@@ -34,23 +37,22 @@ public class AddFlightInfoServlet extends HttpServlet {
         String Gate = request.getParameter("gate");
         String cost = request.getParameter("cost");
         String aircraftId = request.getParameter("aircraft_id");
-        System.out.println(aircraftId + "Im here in servlet");
 
         Flight flightBean = new Flight(FlightId, Takeoff_airport, Takeoff_time, Takeoff_date, Landing_airport, Landing_time, Landing_date, Gate, cost, aircraftId);
         FlightAccess flightAccess = new FlightAccess();
 
-        String result = flightAccess.InsertFlightDetails(flightBean);
+        String message = flightAccess.InsertFlightDetails(flightBean);
         PrintWriter out = response.getWriter();
-        out.println(result);
+        
+        request.setAttribute("message", message);
+                    
+                    RequestDispatcher rd = request.getRequestDispatcher("addFlight.jsp");
+        try {
+            rd.forward(request, response);
+        } catch (ServletException ex) {
+            Logger.getLogger(AddFlightInfoServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
 
-        /*String result = registerAccess.Registerindb(registerBean);
-             if (result.equals("User is registered")) {
-             RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
-             dispatcher.include(request, response);
-             } else {
-             request.setAttribute("errMessage", result);
-             RequestDispatcher dispatcher = request.getRequestDispatcher("register.jsp");
-             dispatcher.include(request, response);
-             }*/
     }
 }
