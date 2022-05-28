@@ -79,6 +79,18 @@
         <servlet-name>SearchUsers_Servlet</servlet-name>
         <servlet-class>com.phoenixairline.controllers.usersControllers.SearchUsers_Servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SearchAndDeleteFlightInfo</servlet-name>
+        <servlet-class>com.phoenixairline.controllers.FlightControllers.SearchAndDeleteFlightInfo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchAndDeleteFLightServlet</servlet-name>
+        <servlet-class>com.phoenixairline.controllers.FlightControllers.SearchAndDeleteFLightServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateAndDeleteFlightServlet</servlet-name>
+        <servlet-class>com.phoenixairline.controllers.FlightControllers.UpdateAndDeleteFlightServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddFlightInfoServlet</servlet-name>
         <url-pattern>/AddFlightInfoServlet</url-pattern>
@@ -154,6 +166,18 @@
     <servlet-mapping>
         <servlet-name>SearchUsers_Servlet</servlet-name>
         <url-pattern>/SearchUsers_Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchAndDeleteFlightInfo</servlet-name>
+        <url-pattern>/SearchAndDeleteFlightInfo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchAndDeleteFLightServlet</servlet-name>
+        <url-pattern>/SearchAndDeleteFLightServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateAndDeleteFlightServlet</servlet-name>
+        <url-pattern>/UpdateAndDeleteFlightServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -15,40 +15,7 @@
         
         <!--Navigation-->
     <div class="container">
-      <div class="navigation">
-        <div class="logo">
-            <img src="media/Phoenixlogo.png" style="width: 200px; height:auto ; padding-top: 1vh;" alt="">
-        </div>
-        <ul>
-            <li></li>
-            <li>
-                
-                <a href="<%=request.getContextPath()%>/ViewFlightInfoServlet">
-                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-                    <span class="title">Flight Information</span>
-                </a>
-            </li>
-            <li>
-                <a href="<%=request.getContextPath()%>/SelectTicketServlet">
-                    <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
-                    <span class="title">Reservations</span>
-                </a>
-            </li>
-            <li>
-                <a href="html/Userprofile.jsp">
-                    <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
-                    <span class="title">Profile</span>
-                </a>
-            </li>
-            <li>
-                <a href="<%=request.getContextPath()%>/LogoutServlet">
-                    <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
-                    <span class="title">Sign Out</span>
-                </a>
-            </li>
-           
-        </ul>
-    </div>
+      <jsp:include page="navBar_staff.jsp" />
         
         <div class="main">
         <form action="SearchFlightInfoServlet" method="POST">
@@ -77,6 +44,9 @@
           </div>
         </form>
             
+         <center>
+                <h3 style="color:green"> ${message}</h3>
+         </center>
         
 <!--        Flights-->
         
@@ -96,46 +66,46 @@
             <th>Landing Airport</th>
             <th>Landing Time</th>
             <th>Landing Date</th>
-            <th>Gate</th>
+            <!--<th>Gate</th>-->
             <th>Cost</th>
-            <th>Aircraft</th>
+            <!--<th>Aircraft</th>-->
             <th>Action</th>
         </thead>
         <tbody>
-            <%
+            
+            <%                
                 if ((request.getAttribute("result") != null)) {
                     List data = new ArrayList();
                     data = (List) request.getAttribute("result");
                     Iterator itr = data.iterator();
                     while (itr.hasNext()) {
+                    
             %>
             <tr>
-                <%! int i=1;%>
-                <td><input type="hidden" name="flightId" value="<%=itr.next()%>"/></td>
-                <td><%=itr.next()%></td>
-                <td><%=itr.next()%></td>
-                <td><%=itr.next()%></td>
-                <td><%=itr.next()%></td>
-                <td><%=itr.next()%></td>
-                <td><%=itr.next()%></td>
-                <td><%=itr.next()%></td>
-                <td><%=itr.next()%></td>
-                <td><%=itr.next()%></td>
+        <form action="UpdateAndDeleteFlightServlet" method="post">
+
+            <td><input type="hidden" name="flightId" value="<%=itr.next()%>"/></td>
+            <td> <input type="text" name="takeoff_airport" style="border-style: hidden; padding-right: -10px"  value="<%=itr.next()%>"></td>
+            <td> <input type="text" name="takeoff_time" style="border-style: hidden" value="<%=itr.next()%>"></td>
+            <td> <input type="text" name="takeoff_date" style="border-style: hidden" value="<%=itr.next()%>"></td>
+            <td> <input type="text" name="landing_airport" style="border-style: hidden" value="<%=itr.next()%>"></td>
+            <td> <input type="text" name="landing_time" style="border-style: hidden" value="<%=itr.next()%>"></td>
+            <td> <input type="text" name="landing_date" style="border-style: hidden" value="<%=itr.next()%>"></td>
+            <td> <input type="hidden" name="gate" style="border-style: hidden" value="<%=itr.next()%>"></td>
+            <td> <input type="text" name="cost" style="border-style: hidden" value="<%=itr.next()%>"></td>
+            <td> <input type="hidden" name="aircraft_id" style="border-style: hidden" value="<%=itr.next()%>"></td>
+                
                 
                 <td>
-                    <form action="SearchFlightInfoServlet" method="post">
-                        <input type="hidden" value="searchOneFlight" name="oneFlight">
-                        <input type="hidden" value="<%=i%>" name="flightId">
-                        <input type="submit" class="status ok" value="Update" /> <br> <br>
-                    </form>
-
-                    <form action="" method="">
-                        
-                           <input type="submit" class="status not" value="Delete" />
-                    </form>
+                    <input type="submit" class="status ok" name="Update" value="Update"/> <br> <br>
+                  
+                    <input type="submit" class="status not" name="Delete" value="Delete"/>
                  </td>
+                 
+            </form>
+        
+                
 
-                 <%i++;%>
                 
             </tr>
             <%}

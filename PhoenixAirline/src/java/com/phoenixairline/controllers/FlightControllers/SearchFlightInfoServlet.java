@@ -15,24 +15,10 @@ public class SearchFlightInfoServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String type=request.getParameter("oneFlight");
+        
+                
         String flightid=request.getParameter("flightId");
         
-        if(type.equals("searchOneFlight")){
-            PrintWriter out = response.getWriter();
-
-            Flight flightBean = new Flight(flightid);
-
-            FlightAccess flightAccess = new FlightAccess();
-            List SearchFlightDetails = flightAccess.searchOneData(flightBean);
-            
-            
-            request.setAttribute("result", SearchFlightDetails);
-            RequestDispatcher rd = request.getRequestDispatcher("UpdateFlight.jsp");
-            rd.forward(request, response);
-    
-                
-        }else{
             String takeoff_date = request.getParameter("takeoff_date");
             String takeoff_airport = request.getParameter("takeoff_airport");
             String landing_airport = request.getParameter("landing_airport");
@@ -45,8 +31,6 @@ public class SearchFlightInfoServlet extends HttpServlet {
             request.setAttribute("result", SearchFlightDetails);
             RequestDispatcher rd = request.getRequestDispatcher("flightsManagement.jsp");
             rd.forward(request, response);
-        }
-
         
         
 
