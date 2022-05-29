@@ -63,7 +63,9 @@ public class TicketAccess {
         try {
             statement = con.createStatement();
             String InsertQuery = "INSERT INTO ticket ('price', 'user_ticket', 'flight_ticket', 'seat_ticket', 'class_ticket') VALUES ('" + price + "', '" + userId + "', '" + flightId + "', '" + seatId + "', '" + classId + "');";
-            i = statement.executeUpdate(InsertQuery);
+           
+
+        i = statement.executeUpdate(InsertQuery);
             con.close();
         } catch (SQLException ex) {
             System.out.println(ex);
