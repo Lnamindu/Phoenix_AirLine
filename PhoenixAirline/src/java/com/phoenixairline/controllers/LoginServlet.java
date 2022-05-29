@@ -10,8 +10,12 @@ import jakarta.servlet.http.HttpSession;
 
 import com.phoenixairline.models.User;
 import com.phoenixairline.models.LoginAccess;
+import com.phoenixairline.models.SearchUsersAccess;
 import com.phoenixairline.models.SessionAccess;
 import com.phoenixairline.models.UserSession;
+import jakarta.servlet.RequestDispatcher;
+import java.io.PrintWriter;
+import java.util.List;
 
 public class LoginServlet extends HttpServlet {
 
@@ -48,6 +52,9 @@ public class LoginServlet extends HttpServlet {
 
         System.out.println(ip);
         System.out.println("<h2>" + "Current Date & Time: " + date.toString() + "</h2>");
+        
+         PrintWriter out = response.getWriter();
+
 
         try {
             String userValidate = loginAccess.authenticateUser(loginBean);
@@ -68,17 +75,44 @@ public class LoginServlet extends HttpServlet {
                     break;
                 }
                 case "StaffG1_Role": {
+                    
+                     out.print("this is word");
+                    
                     System.out.println("StaffG1 Home");
                     session.setMaxInactiveInterval(20 * 60);
                     session.setAttribute("staffg1", username);
-                    request.getRequestDispatcher("/staffg1.jsp").forward(request, response);
+                    
+//                    request.getRequestDispatcher("/staffg1.jsp").forward(request, response);
+                    
+                    SearchUsersAccess vuAccess = new SearchUsersAccess();
+
+                    String ref = request.getHeader("Referer");
+                    System.out.println(ref);
+
+                    List userlist = vuAccess.viewRow("", "");
+                    RequestDispatcher rd = request.getRequestDispatcher("staffg1.jsp");
+                    request.setAttribute("result", userlist);
+                    rd.forward(request, response);
+
                     break;
                 }
                 case "StaffG2_Role": {
+                    
+                    out.print("this is word");
                     System.out.println("StaffG2 Home");
                     session.setMaxInactiveInterval(20 * 60);
                     session.setAttribute("staffg2", username);
-                    request.getRequestDispatcher("/staffg2.jsp").forward(request, response);
+                    
+                    SearchUsersAccess vuAccess = new SearchUsersAccess();
+
+                    String ref = request.getHeader("Referer");
+                    System.out.println(ref);
+
+                    List userlist = vuAccess.viewRow("", "");
+                    RequestDispatcher rd = request.getRequestDispatcher("staffg2.jsp");
+                    request.setAttribute("result", userlist);
+                    rd.forward(request, response);
+                    
                     break;
                 }
                 default:

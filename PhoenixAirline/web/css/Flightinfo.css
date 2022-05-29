@@ -1,9 +1,11 @@
 
 
 /*===================Main======================*/
+
+
 .main
 {
-    position:fixed;
+    position:absolute;
     width:auto;
     top: 15vh;
     min-height:100vh;

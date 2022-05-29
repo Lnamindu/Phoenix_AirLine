@@ -14,7 +14,7 @@ public class User {
 
     public User(String first_name, String last_name, String email, String username, String password, String role) {
         super();
-        this.user_id = user_id;
+//        this.user_id = user_id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
@@ -24,9 +24,18 @@ public class User {
 //        this.phone_number = phone_number;
         this.role = role;
     }
+    public User(){
+        
+    }
 
-    public User() {
+    //for update by staff one
+    public User(int id, String first_name, String last_name, String email, String username) {
         super();
+        this.user_id=id;
+        this.first_name=first_name;
+        this.last_name=last_name;
+        this.email=email;
+        this.username=username;
     }
 
     public int getUser_id() {

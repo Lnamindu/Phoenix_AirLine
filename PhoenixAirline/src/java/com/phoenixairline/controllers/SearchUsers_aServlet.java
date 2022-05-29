@@ -14,14 +14,17 @@ public class SearchUsers_aServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String su = request.getParameter("search_user");
+      String su = request.getParameter("search_user");
         String st = request.getParameter("search_type");
 
         SearchUsersAccess vuAccess = new SearchUsersAccess();
 
-        List userlist = vuAccess.viewRow_admin(su, st);
-        RequestDispatcher rd = request.getRequestDispatcher("admin.jsp");
-        request.setAttribute("dc", userlist);
+        String ref = request.getHeader("Referer");
+        System.out.println(ref);
+
+        List userlist = vuAccess.viewRow(su, st);
+        RequestDispatcher rd = request.getRequestDispatcher("adminCustomer.jsp");
+        request.setAttribute("result", userlist);
         rd.forward(request, response);
     }
 

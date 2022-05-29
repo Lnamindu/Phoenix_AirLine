@@ -32,7 +32,7 @@
             
 
        
- 
+ <br><br><br><br><br>
             <!--===========Main=============-->
       <div class="main">
         <form  action="<%=request.getContextPath()%>/SearchUsers_Servlet" method="POST">
@@ -48,6 +48,8 @@
                             <button type="submit"  value="View Users" name="view_users" class="drop-btn">View User</button>
 
             </div>
+              
+             
   
 <!--            <div class="dropdown">Destination Airport 
               <select class="drop-btn" name="" id="">
@@ -62,6 +64,9 @@
             
           </div>
         </form>
+           <center>
+                <h3 style="color:green"> ${message}</h3>
+         </center>
           
 
         <!--<div style="text-align: right"><a href="<%=request.getContextPath()%>/LogoutServlet">Logout</a></div>-->
@@ -77,7 +82,7 @@
           <div class="recent">
             <div class="cardheader">
               <h2>User Management </h2>
-              <a href="AddUser.jsp" style="text-decoration: none" class="status ok">Add User</a>
+              <!--<a href="AddUser.jsp" style="text-decoration: none" class="status ok">Add User</a>-->
             </div>
 
             <table>
@@ -88,6 +93,7 @@
                   <td>Email</td>
                   <td>User Name</td>
                   <td>User Type</td>
+                  <td>Not block</td>
                   <td>Action</td>
                 </tr>
               </thead>
@@ -97,28 +103,29 @@
                       if ((request.getAttribute("result") != null)) {
                         List user_list = new ArrayList();
                         user_list = (List) request.getAttribute("result");
-                        Iterator it = user_list.iterator();
-                        while (it.hasNext()) {
+                        Iterator itr = user_list.iterator();
+                        while (itr.hasNext()) {
                   %>
                   
                 <tr>
-                  <td><%=it.next()%></td>
-                    <td><%=it.next()%></td>
-                    <td><%=it.next()%></td>
-                    <td><%=it.next()%></td>
-                    <td><%=it.next()%></td>
+              <form action="UpdateBlockUsreServlet" method="post">
+                  <input type="hidden" name="uid" value="<%=itr.next()%>"/>
+
+                    <td> <input type="text" name="fName" style="border-style: hidden; "  value="<%=itr.next()%>"></td>
+                    <td> <input type="text" name="lName" style="border-style: hidden; "  value="<%=itr.next()%>"></td>
+                    <td> <input type="text" name="email" style="border-style: hidden; "  value="<%=itr.next()%>"></td>
+                    <td> <input type="text" name="userName" style="border-style: hidden;"  value="<%=itr.next()%>"></td>
+                    <td><%=itr.next()%></td>
+                    <td><%=itr.next()%></td>
                   <td>
-                      <form action="" method="POST">
-                          <input type="submit"  class="status ok" value="Update" />
-                      </form>
-                      <br>
-                      <form action="" method="POST">
-                          <input type="submit" class="status not" value="Delete" />
-
-                      </form>
-                    
-
+                     
+                          <input type="submit" class="status ok" name="Update" value="Update"/> <br> <br>
+                  
+                          <input type="submit" class="status not" name="Block" value="Block" onclick="return confirm('Do you want to block this user?')"/>
+                     
                   </td>
+              </form>
+                  
                 </tr>
                  <%}
                     }%>

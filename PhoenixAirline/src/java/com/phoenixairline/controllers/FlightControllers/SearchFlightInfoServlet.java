@@ -17,7 +17,7 @@ public class SearchFlightInfoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
                 
-        String flightid=request.getParameter("flightId");
+   
         
             String takeoff_date = request.getParameter("takeoff_date");
             String takeoff_airport = request.getParameter("takeoff_airport");
@@ -31,17 +31,7 @@ public class SearchFlightInfoServlet extends HttpServlet {
             request.setAttribute("result", SearchFlightDetails);
             RequestDispatcher rd = request.getRequestDispatcher("flightsManagement.jsp");
             rd.forward(request, response);
-        
-        
-
-//            String flightId=request.getParameter("search_flight");
-//            Flight flightBean = new Flight(flightId);
-//            
-//            FlightAccess flightAccess = new FlightAccess();
-//            List SearchFlightDetails = flightAccess.searchData(flightBean);
-//            request.setAttribute("result", SearchFlightDetails);
-//            RequestDispatcher rd = request.getRequestDispatcher("flightsManagement.jsp");
-//            rd.forward(request, response);            
+           
 
     }
 

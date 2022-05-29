@@ -6,19 +6,24 @@
 <html>
     <head>
         <title>Admin Page</title>
+           <link rel="stylesheet" href="css/main.css"/>
+           <link rel="stylesheet" href="css/Flightinfo.css" />
     </head>
-    <% //In case, if Admin session is not set, redirect to Login page
+
+      <% //In case, if Admin session is not set, redirect to Login page
         if ((request.getSession(false).getAttribute("admin") == null)) {
     %>
     <jsp:forward page="/login.jsp"></jsp:forward>
     <%}%>
     <!--when page loads show user monitor table-->
-
+    <!--when page loads show user monitor table-->
+    
     <body>
-        <center><h2>Admin Home</h2></center>
-        Welcome <%=session.getAttribute("admin")%>
-
-        <div style="text-align: right"><a href="<%=request.getContextPath()%>/LogoutServlet">Logout</a></div>
+        <div class="container">
+            <jsp:include page="navBarAdmin.jsp"/>
+              
+        <br><br><br><br><br><br><br><br><br>
+       
         <%
             if ((request.getAttribute("monitor_table") == null)) {
                 request.getRequestDispatcher("AdminDCServlet").forward(request, response);
@@ -26,44 +31,7 @@
         %>
 
 
-        <table border="1">
-            <thead>
-            </thead>
-            <tbody>
-                <%
-                    if ((request.getAttribute("approve_table") != null)) {
-                        List data = new ArrayList();
-                        data = (List) request.getAttribute("approve_table");
-                        Iterator itr = data.iterator();
-                        while (itr.hasNext()) {
-                %>
-            <form action="ApproveServlet" method="POST">
-                <tr>
-                <input type="hidden" name="user_id" value="<%=itr.next()%>" />
-                <td><%=itr.next()%></td>
-                <td><%=itr.next()%></td>
-                <td><%=itr.next()%></td>
-                <td>
-                    <input type="submit" value="Approve" />
-                </td>
-                </tr>
-            </form>
-            <%}
-                }%>
-        </tbody>
-    </table>
-
-
-
-    <form action="SearchUsers_aServlet" method="POST">
-        <h3>View Users</h3>
-        <input type="text" name="search_user" value="" />
-        <select name="search_type">
-            <option value="email">Email</option>
-            <option value="username">Username</option>
-        </select>
-        <input type="submit" value="View Users" name="view_users" />
-    </form>
+  
 
     <table border="1">
         <thead>
@@ -90,8 +58,95 @@
         </tbody>
     </table>
 
+       
+        
+        <div class="main">
+       
+           <center>
+                <h3 style="color:green"> ${message}</h3>
+         </center>
+          
+
+        <!--<div style="text-align: right"><a href="<%=request.getContextPath()%>/LogoutServlet">Logout</a></div>-->
 
 
+        <table border="1">
+            <thead>
+            </thead>
+        </table>
+            
+             <!--=============flight management============-->
+        <div class="details">
+          <div class="recent">
+            <div class="cardheader">
+              <h2> Approvel</h2>
+              <!--<a href="AddUser.jsp" style="text-decoration: none" class="status ok">Add User</a>-->
+            </div>
+
+            <table>
+                <thead >
+                    <tr style="box-shadow: 0 1px 10px black; border-radius: 12px; line-height: 4vh">
+                  <td>First Name</td>
+                  <td>Last Name</td>
+                  <td>Role</td>
+                  <td>Action</td>
+                </tr>
+              </thead>
+
+              <tbody>
+                  <%
+                      if ((request.getAttribute("approve_table") != null)) {
+                        List data = new ArrayList();
+                        data = (List) request.getAttribute("approve_table");
+                        Iterator itr = data.iterator();
+                        while (itr.hasNext()) {
+                  %>
+                  
+                <tr>
+              <form action="ApproveServlet" method="POST">
+                <tr>
+                <input type="hidden" name="user_id" value="<%=itr.next()%>" />
+                <td><%=itr.next()%></td>
+                <td><%=itr.next()%></td>
+                <td><%=itr.next()%></td>
+                <td>
+                    <input type="submit" value="Approve" />
+                </td>
+                </tr>
+            </form>
+                  
+                </tr>
+                 <%}
+                    }%>
+              </tbody>
+
+              
+            </table>
+          </div>
+        </div>
+              
+       
+          
+      </div>
+        </div>
+        
+        
+        
+      
+        
+    <script src="adminmain.js"></script>
+
+    <!--ionicons-->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+  
 
 </body>
 </html>

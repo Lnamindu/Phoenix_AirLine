@@ -74,5 +74,23 @@ public class RegisterAccess {
             return "Error";
         }
     }
+    public String blockUser(String user_id) {
+        int i = 0;
+        try {
+            statement = con.createStatement();
+            String appQuery = "UPDATE user SET is_active=0 WHERE id=" + user_id + ";";
+
+            i = statement.executeUpdate(appQuery);
+
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+
+        if (i == 1) {
+            return "Blocked User";
+        } else {
+            return "Error";
+        }
+    }
 
 }

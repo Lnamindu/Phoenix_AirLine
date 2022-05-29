@@ -91,6 +91,58 @@
         <servlet-name>UpdateAndDeleteFlightServlet</servlet-name>
         <servlet-class>com.phoenixairline.controllers.FlightControllers.UpdateAndDeleteFlightServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewUserInfoServlet</servlet-name>
+        <servlet-class>com.phoenixairline.controllers.usersControllers.ViewUserInfoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateUser</servlet-name>
+        <servlet-class>com.phoenixairline.controllers.usersControllers.UpdateUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateDeleteUser</servlet-name>
+        <servlet-class>com.phoenixairline.controllers.usersControllers.UpdateDeleteUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateDeleteUserServlet</servlet-name>
+        <servlet-class>com.phoenixairline.controllers.usersControllers.UpdateDeleteUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddUserServlet</servlet-name>
+        <servlet-class>com.phoenixairline.controllers.usersControllers.AddUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserAccess</servlet-name>
+        <servlet-class>com.phoenixairline.models.UserAccess</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FlightManagemtnStf2Servlet</servlet-name>
+        <servlet-class>FlightManagemtnStf2Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewFlightStf2Servlet</servlet-name>
+        <servlet-class>com.phoenixairline.controllers.FlightControllers.ViewFlightStf2Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewFlightStf1Servlet</servlet-name>
+        <servlet-class>com.phoenixairline.controllers.FlightControllers.ViewFlightStf1Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchUserStf2Servlet</servlet-name>
+        <servlet-class>com.phoenixairline.controllers.usersControllers.SearchUserStf2Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateBlockUsreServlet</servlet-name>
+        <servlet-class>com.phoenixairline.controllers.usersControllers.UpdateBlockUsreServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateBlockUserAdminServlet</servlet-name>
+        <servlet-class>com.phoenixairline.controllers.usersControllers.UpdateBlockUserAdminServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminServlet</servlet-name>
+        <servlet-class>com.phoenixairline.controllers.AdminServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddFlightInfoServlet</servlet-name>
         <url-pattern>/AddFlightInfoServlet</url-pattern>
@@ -178,6 +230,58 @@
     <servlet-mapping>
         <servlet-name>UpdateAndDeleteFlightServlet</servlet-name>
         <url-pattern>/UpdateAndDeleteFlightServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewUserInfoServlet</servlet-name>
+        <url-pattern>/ViewUserInfoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateUser</servlet-name>
+        <url-pattern>/UpdateUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateDeleteUser</servlet-name>
+        <url-pattern>/UpdateDeleteUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateDeleteUserServlet</servlet-name>
+        <url-pattern>/UpdateDeleteUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddUserServlet</servlet-name>
+        <url-pattern>/AddUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserAccess</servlet-name>
+        <url-pattern>/UserAccess</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FlightManagemtnStf2Servlet</servlet-name>
+        <url-pattern>/FlightManagemtnStf2Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewFlightStf2Servlet</servlet-name>
+        <url-pattern>/ViewFlightStf2Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewFlightStf1Servlet</servlet-name>
+        <url-pattern>/ViewFlightStf1Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchUserStf2Servlet</servlet-name>
+        <url-pattern>/SearchUserStf2Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateBlockUsreServlet</servlet-name>
+        <url-pattern>/UpdateBlockUsreServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateBlockUserAdminServlet</servlet-name>
+        <url-pattern>/UpdateBlockUserAdminServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminServlet</servlet-name>
+        <url-pattern>/AdminServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

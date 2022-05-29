@@ -23,60 +23,10 @@
     %>
     <%}%>
     <body>
-        
-        
 
         <div class="container">
-      <div class="navigation">
-        <div class="logo">
-            <img src="media/Phoenixlogo.png" style="width: 200px; height:auto ; padding-top: 1vh;" alt="">
-        </div>
-        <ul>
-            <li></li>
-            <li>
-                <a href="flightsManagement.jsp">
-                    <span class="title">Flights Management</span>
-                </a>
-            </li>
-            <li>
-                <a href="staffg1.jsp">
-                    <span class="title">User Management</span>
-                </a>
-            </li>
-<!--            <li>
-                <a href="#">
-                    <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
-                    <span class="title">Messages</span>
-                </a>
-            </li>-->
-            <li>
-                <a href="html/Userprofile.html">
-                    <span class="title">Ticket Management</span>
-                </a>
-            </li>
-<!--            <li>
-                <a href="#">
-                    <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
-                    <span class="title">Settings</span>
-                </a>
-            </li>-->
-            <!-- <li>
-                <a href="#">
-                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
-                    <span class="title">Password</span>
-                </a>
-            </li> -->
-            <li>
-    <a href="<%=request.getContextPath()%>/LogoutServlet">
-        <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
-        <span class="title">Sign Out</span>
-    </a>
-
-            </li>
-           
-        </ul>
-    </div>
-            
+        
+        <jsp:include page="navBarstf2.jsp" />            
             <!--end navbar-->
             
 
@@ -84,7 +34,7 @@
  
             <!--===========Main=============-->
       <div class="main">
-        <form  action="SearchUsers_sServlet" method="POST">
+        <form  action="<%=request.getContextPath()%>/SearchUserStf2Servlet" method="POST">
           <div class="topbar">
               
             <div class="dropdown"><input class="drop-btn" type="text" name="search_user" placeholder="User Name">
@@ -97,20 +47,14 @@
                             <button type="submit"  value="View Users" name="view_users" class="drop-btn">View User</button>
 
             </div>
-  
-<!--            <div class="dropdown">Destination Airport 
-              <select class="drop-btn" name="" id="">
-                <option value="">country 1</option>
-                <option value="">country 2</option>
-                <option value="">country 3</option>
-                <option value="">country 4</option>
-              </select>
-            </div>-->
-  
-            <!--<label for="" class="cal">Landing Date  <input type="date" id="cale" name="d-date" /></label>-->
+              
+           
             
           </div>
         </form>
+           <center>
+                <h3 style="color:green"> ${message}</h3>
+         </center>
           
 
         <!--<div style="text-align: right"><a href="<%=request.getContextPath()%>/LogoutServlet">Logout</a></div>-->
@@ -126,7 +70,7 @@
           <div class="recent">
             <div class="cardheader">
               <h2>User Management </h2>
-              <a href="AddUser.jsp" style="text-decoration: none" class="status ok">Add User</a>
+              <!--<a href="AddUser.jsp" style="text-decoration: none" class="status ok">Add User</a>-->
             </div>
 
             <table>
@@ -137,6 +81,7 @@
                   <td>Email</td>
                   <td>User Name</td>
                   <td>User Type</td>
+                  <td>Not block</td>
                 </tr>
               </thead>
 
@@ -145,21 +90,22 @@
                       if ((request.getAttribute("result") != null)) {
                         List user_list = new ArrayList();
                         user_list = (List) request.getAttribute("result");
-                        Iterator it = user_list.iterator();
-                        while (it.hasNext()) {
+                        Iterator itr = user_list.iterator();
+                        while (itr.hasNext()) {
                   %>
                   
                 <tr>
-                  <td><%=it.next()%></td>
-                    <td><%=it.next()%></td>
-                    <td><%=it.next()%></td>
-                    <td><%=it.next()%></td>
-                    <td><%=it.next()%></td>
-                  <td>
-                      
-                    
+              <form action="UpdateDeleteUserServlet" method="post">
+                  <input type="hidden" name="uid" value="<%=itr.next()%>"/>
 
-                  </td>
+                    <td> <input type="text" name="fName" style="border-style: hidden; "  value="<%=itr.next()%>"></td>
+                    <td> <input type="text" name="lName" style="border-style: hidden; "  value="<%=itr.next()%>"></td>
+                    <td> <input type="text" name="email" style="border-style: hidden; "  value="<%=itr.next()%>"></td>
+                    <td> <input type="text" name="userName" style="border-style: hidden;"  value="<%=itr.next()%>"></td>
+                    <td><%=itr.next()%></td>
+                    <td><%=itr.next()%></td>
+              </form>
+                  
                 </tr>
                  <%}
                     }%>

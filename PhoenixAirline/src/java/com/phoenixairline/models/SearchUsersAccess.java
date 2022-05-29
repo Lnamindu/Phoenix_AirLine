@@ -31,18 +31,22 @@ public class SearchUsersAccess {
             }
 
             while (resultSet.next()) {
+                String uid=resultSet.getString("id");
                 String first_name = resultSet.getString("first_name");
                 String last_name = resultSet.getString("last_name");
                 String email = resultSet.getString("email");
                 String username = resultSet.getString("username");
                 String role = resultSet.getString("role");
+                String isActive=resultSet.getString("is_active");
                 System.out.println(role);
 
+                user_details.add(uid);
                 user_details.add(first_name);
                 user_details.add(last_name);
                 user_details.add(email);
                 user_details.add(username);
                 user_details.add(role);
+                user_details.add(isActive);
             }
             con.close();
         } catch (SQLException e) {

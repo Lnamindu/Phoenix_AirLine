@@ -16,27 +16,11 @@ import java.util.List;
 public class UpdateAndDeleteFlightServlet extends HttpServlet {
 
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet UpdateAndDeleteFlightServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet UpdateAndDeleteFlightServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
     }
 
 
@@ -59,16 +43,7 @@ public class UpdateAndDeleteFlightServlet extends HttpServlet {
         String cost = request.getParameter("cost");
         String aircraftId = request.getParameter("aircraft_id");
         
-//        updatedData.add(FlightId);
-//        updatedData.add(Takeoff_airport);
-//        updatedData.add(Takeoff_time);
-//        updatedData.add(Takeoff_date);
-//        updatedData.add(Landing_airport);
-//        updatedData.add(Landing_time);
-//        updatedData.add(Landing_date);
-//        updatedData.add(Gate);
-//        updatedData.add(cost);
-//        updatedData.add(aircraftId);
+
 
         Flight flightBean = new Flight(FlightId, Takeoff_airport, Takeoff_time, Takeoff_date, Landing_airport, Landing_time, Landing_date, Gate, cost, aircraftId);
         FlightAccess flightAccess = new FlightAccess();

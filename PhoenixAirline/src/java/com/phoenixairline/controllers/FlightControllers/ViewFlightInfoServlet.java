@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
+
 package com.phoenixairline.controllers.FlightControllers;
 
 import com.phoenixairline.models.FlightAccess;
@@ -31,40 +28,7 @@ public class ViewFlightInfoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 
         PrintWriter out=null;
-        try {
-            String ref=request.getHeader("Referer");
-            String page=ref.substring(ref.lastIndexOf("/")+1,ref.lastIndexOf(""));
-            out = response.getWriter();
-            out.println(page);
-            
-            if(page.equals("LoginServlet") || 
-                    page.equals("AllFlightDetails.jsp") || 
-                    page.equals("staffg1.jsp") || 
-                    page.equals("ViewFlightInfoServlet") || 
-                    page.equals("ViewFlightInfoServlet") || 
-                    page.equals("SearchUsers_Servlet") || 
-                    page.equals("SearchUsers_Servlet") ||
-                    page.equals("SearchUsers_Servlet") ||
-                    page.equals("SearchFlightInfoServlet") ||
-                    page.equals("UpdateAndDeleteFlightServlet") ||
-                    page.equals("AddFlightInfoServlet") ||
-                    page.equals("addFlight.jsp") ){
-                try {
-                    FlightAccess flightAccess = new FlightAccess();
-                    List flightDetails = flightAccess.viewAllFlightDetails();
-                    
-//                    out.print(flightDetails);
-                    request.setAttribute("result", flightDetails);
-                    
-                    RequestDispatcher rd = request.getRequestDispatcher("flightsManagement.jsp");
-                    rd.forward(request, response);
-                } catch (Exception ex) {
-                    System.out.println(ex);
-                }
-//                
-            }
-            
-            else{
+             
                 try {
                     FlightAccess flightAccess = new FlightAccess();
                     List flightDetails = flightAccess.viewAllFlightDetails();
@@ -76,14 +40,8 @@ public class ViewFlightInfoServlet extends HttpServlet {
                 } catch (ServletException | IOException ex) {
                     System.out.println(ex);
                 }
-            }
-        } catch (IOException ex) {
-            Logger.getLogger(ViewFlightInfoServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            out.close();
-        }
-     
-
+            
+       
 
     }
 

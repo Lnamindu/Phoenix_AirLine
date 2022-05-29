@@ -18,13 +18,13 @@
         <ul>
             <li></li>
             <li>
-                <a href="<%=request.getContextPath()%>/ViewFlightStf1Servlet">
+                <a href="<%=request.getContextPath()%>/ViewFlightStf2Servlet">
                     <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
                     <span class="title">Flight Management</span>
                 </a>
             </li>
             <li>
-                <a href="staffg1.jsp">
+                <a href="staffg2.jsp">
                     <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
                     <span class="title">User Management</span>
                 </a>
