@@ -1,3 +1,7 @@
+
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -37,10 +41,17 @@
                 </a>
             </li>
             <li>
-                <a href="html/Userprofile.jsp">
-                    <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
-                    <span class="title">Profile</span>
-                </a>
+              
+                 
+                 <form id="prf" method="get" action="ProfileDetailsServlet"> 
+                        
+                     <input type="hidden" name="uid" value="<%=request.getAttribute("uid")%>">
+                        <a href="#" onclick="goToProfilePage()">                   
+                        <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+                        <span class="title">Profile</span>
+                        </a>
+                 </form>
+                
             </li>
             <li>
                 <a href="<%=request.getContextPath()%>/LogoutServlet">
@@ -118,6 +129,12 @@
           
     <!--========scripts=======-->
     <script src="adminmain.js"></script>
+    
+                    <script>
+                        function goToProfilePage() {
+                            document.getElementById("prf").submit();
+                        }
+                    </script>
 
     <!--ionicons-->
     <script

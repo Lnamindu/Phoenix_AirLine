@@ -54,6 +54,42 @@ public class SearchUsersAccess {
         }
         return user_details;
     }
+    
+//    
+    public List viewForProfile(String id) {
+        List user_details = new ArrayList();
+
+        try {
+            con = ConnectToDB.createConnection();
+            statement = con.createStatement();
+
+
+                resultSet = statement.executeQuery("select * from user where id like'" + id + "';");
+
+            while (resultSet.next()) {
+                String uid=resultSet.getString("id");
+                String first_name = resultSet.getString("first_name");
+                String last_name = resultSet.getString("last_name");
+                String email = resultSet.getString("email");
+                String username = resultSet.getString("username");
+                String phoneNumber =resultSet.getString("phone");
+                String address =resultSet.getString("address");
+
+                user_details.add(uid);
+                user_details.add(first_name);
+                user_details.add(last_name);
+                user_details.add(email);
+                user_details.add(username);
+                user_details.add(phoneNumber);
+                user_details.add(address);
+            }
+            con.close();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return user_details;
+    }
+    
 
     public List viewRow_admin(String su, String st) {
         List user_details = new ArrayList();

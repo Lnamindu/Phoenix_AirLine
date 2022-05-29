@@ -71,6 +71,7 @@ public class LoginServlet extends HttpServlet {
                     System.out.println("Client Home");
                     session.setMaxInactiveInterval(60 * 60);
                     session.setAttribute("client", username); //setting session attribute
+                    request.setAttribute("uid", user_id);
                     request.getRequestDispatcher("/user.jsp").forward(request, response);
                     break;
                 }

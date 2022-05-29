@@ -143,6 +143,10 @@
         <servlet-name>AdminServlet</servlet-name>
         <servlet-class>com.phoenixairline.controllers.AdminServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProfileDetailsServlet</servlet-name>
+        <servlet-class>com.phoenixairline.controllers.ProfileDetailsServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddFlightInfoServlet</servlet-name>
         <url-pattern>/AddFlightInfoServlet</url-pattern>
@@ -282,6 +286,10 @@
     <servlet-mapping>
         <servlet-name>AdminServlet</servlet-name>
         <url-pattern>/AdminServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProfileDetailsServlet</servlet-name>
+        <url-pattern>/ProfileDetailsServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
