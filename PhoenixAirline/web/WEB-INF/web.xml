@@ -147,6 +147,18 @@
         <servlet-name>ProfileDetailsServlet</servlet-name>
         <servlet-class>com.phoenixairline.controllers.ProfileDetailsServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ShowAllticketsServlet</servlet-name>
+        <servlet-class>com.phoenixairline.controllers.ticketmanagement.ShowAllticketsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShowReservationServlet</servlet-name>
+        <servlet-class>com.phoenixairline.controllers.ticketmanagement.ShowReservationServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateDeleteReservationServlet</servlet-name>
+        <servlet-class>com.phoenixairline.controllers.ticketmanagement.UpdateDeleteReservationServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddFlightInfoServlet</servlet-name>
         <url-pattern>/AddFlightInfoServlet</url-pattern>
@@ -290,6 +302,18 @@
     <servlet-mapping>
         <servlet-name>ProfileDetailsServlet</servlet-name>
         <url-pattern>/ProfileDetailsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowAllticketsServlet</servlet-name>
+        <url-pattern>/ShowAllticketsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowReservationServlet</servlet-name>
+        <url-pattern>/ShowReservationServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateDeleteReservationServlet</servlet-name>
+        <url-pattern>/UpdateDeleteReservationServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

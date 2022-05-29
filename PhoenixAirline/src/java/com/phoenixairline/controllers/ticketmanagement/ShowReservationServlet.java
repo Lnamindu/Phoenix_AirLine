@@ -1,44 +1,52 @@
-package com.phoenixairline.controllers.usersControllers;
 
+package com.phoenixairline.controllers.ticketmanagement;
+
+import com.phoenixairline.models.SearchReservationAccess;
 import com.phoenixairline.models.SearchUsersAccess;
-import java.io.IOException;
-import java.util.List;
 import jakarta.servlet.RequestDispatcher;
+import java.io.IOException;
+import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.List;
 
-public class SearchUsers_Servlet extends HttpServlet {
+public class ShowReservationServlet extends HttpServlet {
 
     
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
               doPost(request, response);
     }
-    
+
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String su = request.getParameter("search_user");
-        String st = request.getParameter("search_type");
+         SearchReservationAccess srAccess = new SearchReservationAccess();
 
-        SearchUsersAccess vuAccess = new SearchUsersAccess();
 
-        String ref = request.getHeader("Referer");
-        System.out.println(ref);
 
-        List userlist = vuAccess.viewRow(su, st);
-        RequestDispatcher rd = request.getRequestDispatcher("staffg1.jsp");
-        request.setAttribute("result", userlist);
-        rd.forward(request, response);
+            PrintWriter out=response.getWriter();
+
+            List reservationlist = srAccess.viewReservationAll();
+
+            out.print(reservationlist);
+            RequestDispatcher rd = request.getRequestDispatcher("ticketManagement.jsp");
+            request.setAttribute("result", reservationlist);
+            rd.forward(request, response);
+        
 
     }
 
+ 
     @Override
     public String getServletInfo() {
         return "Short description";
-    }
+    }// </editor-fold>
+
 }

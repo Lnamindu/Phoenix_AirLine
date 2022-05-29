@@ -68,12 +68,11 @@ public class UpdateAndDeleteFlightServlet extends HttpServlet {
         } else if (request.getParameter("Delete") != null){
              String FlightId = request.getParameter("flightId");
 
-        Flight flightBean = new Flight(FlightId);
-        FlightAccess flightAccess = new FlightAccess();
+                Flight flightBean = new Flight(FlightId);
+                FlightAccess flightAccess = new FlightAccess();
 
-        String message = flightAccess.DeleteFlightDetails(flightBean);
-        PrintWriter out = response.getWriter();
-//        out.println(message);
+                String message = flightAccess.DeleteFlightDetails(flightBean);
+                PrintWriter out = response.getWriter();
 
            request.setAttribute("message", message);
            try {

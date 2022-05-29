@@ -91,6 +91,8 @@ public class LoginServlet extends HttpServlet {
                     System.out.println(ref);
 
                     List userlist = vuAccess.viewRow("", "");
+                    
+                    out.print(userlist);
                     RequestDispatcher rd = request.getRequestDispatcher("staffg1.jsp");
                     request.setAttribute("result", userlist);
                     rd.forward(request, response);

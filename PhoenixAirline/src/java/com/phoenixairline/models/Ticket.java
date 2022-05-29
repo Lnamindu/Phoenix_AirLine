@@ -21,9 +21,8 @@ public class Ticket {
     public Ticket(){
         super();
     }
-    /**
-     * @return the ticketId
-     */
+    
+       
     public int getTicketId() {
         return ticketId;
     }
