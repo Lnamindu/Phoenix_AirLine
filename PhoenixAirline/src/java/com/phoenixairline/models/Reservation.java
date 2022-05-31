@@ -12,12 +12,21 @@ public class Reservation {
         String landingAriport;
         String cost;
 
+    public String getTakeOffTime() {
+        return takeOffTime;
+    }
+
+    public void setTakeOffTime(String takeOffTime) {
+        this.takeOffTime = takeOffTime;
+    }
+
     public Reservation(int userId, String takeOffAirPort, String takeOffDate,String takeOffTime, String landingAriport, String cost) {
 
         this.userId = userId;
         this.takeOffAirPort = takeOffAirPort;
         this.takeOffDate = takeOffDate;
         this.landingAriport = landingAriport;
+        this.takeOffTime=takeOffTime;
         this.cost = cost;
     }
 

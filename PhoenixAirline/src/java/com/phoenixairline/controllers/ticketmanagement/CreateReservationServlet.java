@@ -35,12 +35,15 @@ public class CreateReservationServlet extends HttpServlet {
         String takeoff_time = request.getParameter("takeoffTime");
         String landing_airport = request.getParameter("landing_airport");
         String cost = request.getParameter("cost");
+        
+         PrintWriter out = response.getWriter();
+    
+        
 
         Reservation reservationBean = new Reservation(userId, takeOffAirport, takeoff_date, takeoff_time, landing_airport, cost);
         ReservationAccess reservationAccess = new ReservationAccess();
 
         String message = reservationAccess.createReservation(reservationBean);
-        PrintWriter out = response.getWriter();
         
         request.setAttribute("message", message);
                     

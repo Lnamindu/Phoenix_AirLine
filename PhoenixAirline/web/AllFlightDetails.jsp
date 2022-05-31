@@ -76,9 +76,9 @@
           </div>
         </form>
             
-<!--            <center>
+            <center>
                 <h3 style="color:green"> ${message}</h3>
-         </center>-->
+         </center>
         
         
 <!--        Flights-->
