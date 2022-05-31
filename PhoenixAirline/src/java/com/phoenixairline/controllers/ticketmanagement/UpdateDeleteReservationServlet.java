@@ -20,8 +20,6 @@ import java.util.List;
 
 public class UpdateDeleteReservationServlet extends HttpServlet {
 
- 
-
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -39,19 +37,18 @@ public class UpdateDeleteReservationServlet extends HttpServlet {
         response.setContentType("text/html");
         String id = request.getParameter("id");
         String tPrice = request.getParameter("totalPrice");
-        String userReservation = request.getParameter("userReservation");
         
         PrintWriter out=response.getWriter();
         
         
 
-        Reservation reservationBean = new Reservation(id, tPrice, userReservation);
+        Reservation reservationBean = new Reservation(id, tPrice);
         SearchReservationAccess reservationAccess = new SearchReservationAccess();
 
         String result = reservationAccess.UpdateTicket(reservationBean);
         
         request.setAttribute("message", result);
-                    
+                    out.print(result);
         
         try {
                     TicketAccess ticketAccess = new TicketAccess();
@@ -68,10 +65,10 @@ public class UpdateDeleteReservationServlet extends HttpServlet {
         } else if (request.getParameter("Delete") != null){
                 String id = request.getParameter("id");
 
-                Reservation reservationBean = new Reservation(id);
+                Reservation rsbean = new Reservation(id);
                 SearchReservationAccess resevationAccess = new SearchReservationAccess();
 
-                String message = resevationAccess.DeleteTicket(reservationBean);
+                String message = resevationAccess.DeleteTicket(rsbean);
                 PrintWriter out = response.getWriter();
 
            request.setAttribute("message", message);

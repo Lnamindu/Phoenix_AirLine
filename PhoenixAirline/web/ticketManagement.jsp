@@ -33,7 +33,7 @@
 
  
             <!--===========Main=============-->
-      <div class="main" style="background-image:url( media/home.jpg); background-size: cover;">
+      <div class="main" style="background-image:url(media/home.jpg); background-size: cover;">
         <form  action="<%=request.getContextPath()%>/ShowReservationServlet" method="POST">
           <div class="topbar">
               
@@ -93,7 +93,7 @@
                      
                           <input type="submit" class="status ok" name="Update" value="Update"/> <br> <br>
                   
-                          <input type="submit" class="status not" name="Delete" value="Delete" onclick="return confirm('Do you want to Delete this user?')"/>
+                          <input type="submit" class="status not" name="Delete" value="Delete" onclick="return confirm('Do you want to Delete this ticket?')"/>
                      
                   </td>
               </form>

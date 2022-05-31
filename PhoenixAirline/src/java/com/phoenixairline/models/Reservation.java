@@ -5,22 +5,33 @@ package com.phoenixairline.models;
 public class Reservation {
     
     String id ;
-        String tPrice ;
-        String userReservation;
+        int userId ;
+        String takeOffAirPort;
+        String takeOffDate;
+        String takeOffTime;
+        String landingAriport;
+        String cost;
+
+    public Reservation(int userId, String takeOffAirPort, String takeOffDate,String takeOffTime, String landingAriport, String cost) {
+
+        this.userId = userId;
+        this.takeOffAirPort = takeOffAirPort;
+        this.takeOffDate = takeOffDate;
+        this.landingAriport = landingAriport;
+        this.cost = cost;
+    }
 
     public Reservation(String id) {
-        this.id = id;
+        this.id=id;
     }
-        
-        
 
-    public Reservation(String id, String tPrice, String userReservation) {
-        this.id = id;
-        this.tPrice = tPrice;
-        this.userReservation = userReservation;
+    public Reservation(String id, String cost) {
+        this.id=id;
+        this.cost=cost;
+        
     }
         
-        
+  
 
     public String getId() {
         return id;
@@ -30,20 +41,49 @@ public class Reservation {
         this.id = id;
     }
 
-    public String gettPrice() {
-        return tPrice;
+    public int getUserId() {
+        return userId;
     }
 
-    public void settPrice(String tPrice) {
-        this.tPrice = tPrice;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public String getUserReservation() {
-        return userReservation;
+   
+
+    public String getTakeOffAirPort() {
+        return takeOffAirPort;
     }
 
-    public void setUserReservation(String userReservation) {
-        this.userReservation = userReservation;
+    public void setTakeOffAirPort(String takeOffAirPort) {
+        this.takeOffAirPort = takeOffAirPort;
     }
+
+    public String getTakeOffDate() {
+        return takeOffDate;
+    }
+
+    public void setTakeOffDate(String takeOffDate) {
+        this.takeOffDate = takeOffDate;
+    }
+
+    public String getCost() {
+        return cost;
+    }
+
+    public void setCost(String cost) {
+        this.cost = cost;
+    }
+
+    public String getLandingAriport() {
+        return landingAriport;
+    }
+
+    public void setLandingAriport(String landingAriport) {
+        this.landingAriport = landingAriport;
+    }
+        
+
+    
         
 }

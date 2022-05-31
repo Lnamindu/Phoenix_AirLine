@@ -23,7 +23,7 @@ public class ProfileDetailsServlet extends HttpServlet {
 
                     List userDetails = vuAccess.viewForProfile(userId);
                     PrintWriter out = response.getWriter();
-//                    out.print(userlist);
+                    out.print(userDetails);
                     
                     RequestDispatcher rd = request.getRequestDispatcher("Userprofile.jsp");
                     request.setAttribute("result", userDetails);

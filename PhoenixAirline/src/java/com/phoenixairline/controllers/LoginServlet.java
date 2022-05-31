@@ -84,7 +84,7 @@ public class LoginServlet extends HttpServlet {
                     session.setAttribute("staffg1", username);
                     
 //                    request.getRequestDispatcher("/staffg1.jsp").forward(request, response);
-                    
+                    request.setAttribute("uid", user_id);
                     SearchUsersAccess vuAccess = new SearchUsersAccess();
 
                     String ref = request.getHeader("Referer");

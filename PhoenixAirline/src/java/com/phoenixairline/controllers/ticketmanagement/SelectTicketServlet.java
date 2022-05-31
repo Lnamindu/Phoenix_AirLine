@@ -27,7 +27,6 @@ public class SelectTicketServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         userId = (int) session.getAttribute("user_id");
-        System.out.println("user id from session " + userId);
 
         List reservationValues = ticketAccess.selectTicket(userId);
         request.setAttribute("reservationResult", reservationValues);

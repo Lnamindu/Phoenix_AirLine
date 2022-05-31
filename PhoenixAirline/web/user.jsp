@@ -44,10 +44,10 @@
             <li>
               
                  
-                 <form id="prf" method="get" action="ProfileDetailsServlet"> 
+                  <form id="prf" method="get" action="ProfileDetailsServlet"> 
                         
                      <input type="hidden" name="uid" value="<%=request.getAttribute("uid")%>">
-                        <a href="html/Userprofile.jsp" onclick="goToProfilePage()">                   
+                        <a href="#" onclick="goToProfilePage()">                   
                         <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
                         <span class="title">Profile</span>
                         </a>
