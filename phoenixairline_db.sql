@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 31, 2022 at 10:01 PM
+-- Generation Time: May 31, 2022 at 10:37 PM
 -- Server version: 10.5.13-MariaDB-0ubuntu0.21.04.1
 -- PHP Version: 7.4.16
 
@@ -122,7 +122,10 @@ CREATE TABLE `reservation` (
 
 INSERT INTO `reservation` (`id`, `userId`, `takeOff_airport`, `takeOff_date`, `take_off_time`, `landing_airport`, `cost`) VALUES
 (1, 1000, 'London', 'London', 'null', 'Colombo', '15000.0'),
-(2, 1000, 'London', 'London', '1:00PM', 'Colombo', '15000.0');
+(2, 1000, 'London', 'London', '1:00PM', 'Colombo', '15000.0'),
+(3, 1000, 'Melbourne', 'Melbourne', '5:48 PM', 'South Africa', '176999.0'),
+(4, 1000, 'London', 'London', '1:00PM', 'Colombo', '15000.0'),
+(5, 1000, 'Melbourne', 'Melbourne', '1:23 AM', 'Colombo', '56700.0');
 
 -- --------------------------------------------------------
 
@@ -498,7 +501,8 @@ INSERT INTO `session` (`id`, `login_time`, `ip_address`, `user_session`) VALUES
 (314, 'Tue May 31 21:41:50 IST 2022', '127.0.0.1', 1000),
 (315, 'Tue May 31 21:43:13 IST 2022', '127.0.0.1', 1000),
 (316, 'Tue May 31 21:51:41 IST 2022', '127.0.0.1', 1000),
-(317, 'Tue May 31 21:53:57 IST 2022', '127.0.0.1', 1000);
+(317, 'Tue May 31 21:53:57 IST 2022', '127.0.0.1', 1000),
+(318, 'Tue May 31 22:29:47 IST 2022', '127.0.0.1', 1000);
 
 -- --------------------------------------------------------
 
@@ -560,13 +564,13 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `username`, `password`, `role`, `is_active`) VALUES
-(1000, 'Thisura', 'Samarakoon', 'thissamarakoon@gmail.com', 'thisuras', 'password', 'client', 1),
-(1001, 'Yasas', 'Harshana', 'yasas99@hotmail.com', 'yasash', 'password', 'client', 1),
-(1002, 'Heshan', 'Kalhara', 'heshan@gmail.com', 'heshank', 'password', 'staffg1', 0),
+(1000, 'Ruwan', 'Gunathilake', 'ru@gmail.com', 'ru', 'password', 'client', 1),
+(1001, 'Piyumo', 'gunathilake', 'piyu@hotmail.com', 'piyu', 'password', 'client', 1),
+(1002, 'kasun', 'Kalhara', 'kasun@gmail.com', 'kasun', 'password', 'staffg1', 0),
 (1003, 'Mohamed', 'Mubarak', 'mam@gmail.com', 'mohamedm', 'password', 'staffg2', 1),
-(1004, 'Kushani', 'Kaushalya', 'kushani@gmail.com', 'kushanik', 'password', 'staffg1', 1),
+(1004, 'Kushani', 'Sandunika', 'kusi@gmail.com', 'kushanik', 'password', 'staffg1', 1),
 (1005, 'Bihara', 'Numanshi', 'bihara@gmail.com', 'biharan', 'password', 'staffg2', 0),
-(1006, 'Hashan', 'Madhawa', 'hashan@gmail.com', 'hashanm', 'password', 'admin', 1),
+(1006, 'Hashan', 'Senaka', 'hashan@gmail.com', 'hashans', 'password', 'admin', 1),
 (1007, 'Janith', 'Thilanka', 'janitht@gmail.com', 'janitht', 'password', 'client', 0),
 (1009, 'Shaveen', 'Kahandagama', 'shaveenk@gmail.com', 'shaveenk', 'password', 'client', 0),
 (1012, 'Shaveen', 'Kahandagama', 'shaveenkd@gmail.com', 'shaveenkd', 'password', 'client', 0),
@@ -649,7 +653,7 @@ ALTER TABLE `flight`
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `seat`
@@ -661,7 +665,7 @@ ALTER TABLE `seat`
 -- AUTO_INCREMENT for table `session`
 --
 ALTER TABLE `session`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=318;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=319;
 
 --
 -- AUTO_INCREMENT for table `ticket`
