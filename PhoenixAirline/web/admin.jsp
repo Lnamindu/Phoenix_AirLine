@@ -87,7 +87,7 @@
 
        
         
-<!--        <div class="main">
+<!--      <div class="main">
        
            <center>
                 <h3 style="color:green"> ${message}</h3>

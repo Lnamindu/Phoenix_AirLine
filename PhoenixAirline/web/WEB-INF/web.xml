@@ -159,6 +159,10 @@
         <servlet-name>UpdateDeleteReservationServlet</servlet-name>
         <servlet-class>com.phoenixairline.controllers.ticketmanagement.UpdateDeleteReservationServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SearchUserAdminServlet</servlet-name>
+        <servlet-class>com.phoenixairline.controllers.usersControllers.SearchUserAdminServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddFlightInfoServlet</servlet-name>
         <url-pattern>/AddFlightInfoServlet</url-pattern>
@@ -314,6 +318,10 @@
     <servlet-mapping>
         <servlet-name>UpdateDeleteReservationServlet</servlet-name>
         <url-pattern>/UpdateDeleteReservationServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchUserAdminServlet</servlet-name>
+        <url-pattern>/SearchUserAdminServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

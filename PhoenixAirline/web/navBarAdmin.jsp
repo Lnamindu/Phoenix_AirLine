@@ -26,7 +26,7 @@
                     
                 </li>
                 <li>
-                    <a href="adminCustomer.jsp">
+                    <a href="<%=request.getContextPath()%>/SearchUserAdminServlet">
                         <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
                         <span class="title">Customers</span>
                     </a>

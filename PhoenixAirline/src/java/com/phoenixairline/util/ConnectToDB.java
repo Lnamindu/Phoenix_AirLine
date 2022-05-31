@@ -10,8 +10,8 @@ public class ConnectToDB {
         Connection con = null;
         String driver = "com.mysql.cj.jdbc.Driver";
         String url = "jdbc:mysql://localhost:3306/phoenixairline_db";
-        String username = "root";
-        String password = "";
+        String username = "wimu";
+        String password = "20777";
 
         try {
             try {
