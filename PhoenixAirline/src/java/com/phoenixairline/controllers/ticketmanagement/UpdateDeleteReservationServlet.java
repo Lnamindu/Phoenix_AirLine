@@ -8,6 +8,7 @@ import com.phoenixairline.models.Flight;
 import com.phoenixairline.models.FlightAccess;
 import com.phoenixairline.models.Reservation;
 import com.phoenixairline.models.SearchReservationAccess;
+import com.phoenixairline.models.TicketAccess;
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -47,20 +48,18 @@ public class UpdateDeleteReservationServlet extends HttpServlet {
         Reservation reservationBean = new Reservation(id, tPrice, userReservation);
         SearchReservationAccess reservationAccess = new SearchReservationAccess();
 
-        String result = reservationAccess.UpdateReservationDetails(reservationBean);
+        String result = reservationAccess.UpdateTicket(reservationBean);
         
         request.setAttribute("message", result);
                     
         
         try {
-                    SearchReservationAccess srAccess = new SearchReservationAccess();
+                    TicketAccess ticketAccess = new TicketAccess();
 
-
-                    List reservationlist = srAccess.viewReservationAll();
-
-                    out.print(reservationlist);
+                    List reservationValues = ticketAccess.selectAllTicket();
+                    request.setAttribute("reservationResult", reservationValues);
                     RequestDispatcher rd = request.getRequestDispatcher("ticketManagement.jsp");
-                    request.setAttribute("result", reservationlist);
+                    request.setAttribute("result", reservationValues);
                     rd.forward(request, response);
                 } catch (ServletException | IOException ex) {
                     System.out.println(ex);
@@ -72,20 +71,18 @@ public class UpdateDeleteReservationServlet extends HttpServlet {
                 Reservation reservationBean = new Reservation(id);
                 SearchReservationAccess resevationAccess = new SearchReservationAccess();
 
-                String message = resevationAccess.DeleteFlightDetails(reservationBean);
+                String message = resevationAccess.DeleteTicket(reservationBean);
                 PrintWriter out = response.getWriter();
 
            request.setAttribute("message", message);
            try {
                     
-                    SearchReservationAccess srAccess = new SearchReservationAccess();
+                    TicketAccess ticketAccess = new TicketAccess();
 
-
-                    List reservationlist = srAccess.viewReservationAll();
-
-                    out.print(reservationlist);
+                    List reservationValues = ticketAccess.selectAllTicket();
+                    request.setAttribute("reservationResult", reservationValues);
                     RequestDispatcher rd = request.getRequestDispatcher("ticketManagement.jsp");
-                    request.setAttribute("result", reservationlist);
+                    request.setAttribute("result", reservationValues);
                     rd.forward(request, response);
                 } catch (ServletException | IOException ex) {
                     System.out.println(ex);

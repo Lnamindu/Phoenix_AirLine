@@ -30,7 +30,7 @@
                 </a>
             </li>
             <li>
-                <a href="<%=request.getContextPath()%>/ShowReservationServlet">
+                <a href="<%=request.getContextPath()%>/ShowTicketServlet">
                     <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
                     <span class="title">Ticket Management</span>
                 </a>

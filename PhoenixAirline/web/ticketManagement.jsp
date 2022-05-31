@@ -63,13 +63,13 @@
               <!--<a href="AddUser.jsp" style="text-decoration: none" class="status ok">Add User</a>-->
             </div>
 
-              <h4> You can only change total price  <h4>
+              <h4 style="color: red"> You can only change total price  <h4>
             <table>
                 <thead >
                     <tr style="box-shadow: 0 1px 10px black; border-radius: 12px; line-height: 4vh">
                   <td>ID</td>
                   <td>Total Price</td>
-                  <td>User Reservation</td>
+                  <td>User Id</td>
                   <td>Action</td>
                 </tr>
               </thead>

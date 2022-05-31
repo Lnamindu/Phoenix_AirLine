@@ -48,6 +48,29 @@ public class TicketAccess {
         return flight_details;
     }
 
+    public List selectAllTicket() {
+
+        List flight_details = new ArrayList();
+        con = ConnectToDB.createConnection();
+        try {
+            statement = con.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM ticket;");
+
+            while (resultSet.next()) {
+                String id = resultSet.getString("id");
+                String totalPrice = resultSet.getString("price");
+                String userReservation = resultSet.getString("user_ticket");
+
+                flight_details.add(id);
+                flight_details.add(totalPrice);
+                flight_details.add(userReservation);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return flight_details;
+    }
+    
 //Insert ticket details method
     public String createTicket(Ticket ticketBean) {
         //get values from ticketBean

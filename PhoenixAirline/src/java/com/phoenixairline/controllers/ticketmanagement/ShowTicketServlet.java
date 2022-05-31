@@ -3,6 +3,7 @@ package com.phoenixairline.controllers.ticketmanagement;
 
 import com.phoenixairline.models.SearchReservationAccess;
 import com.phoenixairline.models.SearchUsersAccess;
+import com.phoenixairline.models.TicketAccess;
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,7 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
 
-public class ShowReservationServlet extends HttpServlet {
+public class ShowTicketServlet extends HttpServlet {
 
     
 
@@ -29,15 +30,18 @@ public class ShowReservationServlet extends HttpServlet {
             throws ServletException, IOException {
          SearchReservationAccess srAccess = new SearchReservationAccess();
 
+         
+            SearchUsersAccess vuAccess = new SearchUsersAccess();
 
+            String ref = request.getHeader("Referer");
+            System.out.println(ref);
 
-            PrintWriter out=response.getWriter();
+              TicketAccess ticketAccess = new TicketAccess();
 
-            List reservationlist = srAccess.viewReservationAll();
-
-            out.print(reservationlist);
+            List reservationValues = ticketAccess.selectAllTicket();
+            request.setAttribute("reservationResult", reservationValues);
             RequestDispatcher rd = request.getRequestDispatcher("ticketManagement.jsp");
-            request.setAttribute("result", reservationlist);
+            request.setAttribute("result", reservationValues);
             rd.forward(request, response);
         
 

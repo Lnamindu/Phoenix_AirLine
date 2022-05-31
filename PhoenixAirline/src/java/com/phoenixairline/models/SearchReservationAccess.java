@@ -43,35 +43,35 @@ public class SearchReservationAccess {
         return allReservation;
     }
     
-     public String UpdateReservationDetails(Reservation reservation) {
+     public String UpdateTicket(Reservation reservation) {
         int id = Integer.parseInt(reservation.getId());
-        float totalPrice =  Float.parseFloat(reservation.gettPrice());
+        float price =  Float.parseFloat(reservation.gettPrice());
         String userReservation = reservation.gettPrice();
 
         con = ConnectToDB.createConnection();
         try {
             statement = con.createStatement();
-            String updateQuery = "UPDATE reservation SET total_price=" + totalPrice + " WHERE id=" + id + ";";
+            String updateQuery = "UPDATE ticket SET price=" + price + " WHERE id=" + id + ";";
             i = statement.executeUpdate(updateQuery);
         } catch (SQLException ex) {
             System.out.println(ex);
         }
 
         if (i != 0) {
-            return "Reservation details updated successfully";
+            return "Ticket details updated successfully";
         } else {
-            return "Reservation details not updated";
+            return "Ticket details not updated";
         }
     }
 
-    public String DeleteFlightDetails(Reservation reservationBean) {
+    public String DeleteTicket(Reservation reservationBean) {
         
         int id = Integer.parseInt(reservationBean.getId());
 
         con = ConnectToDB.createConnection();
         try {
             statement = con.createStatement();
-            String dltQuery = "DELETE FROM reservation WHERE id=" + id + "; ";
+            String dltQuery = "DELETE FROM ticket WHERE id=" + id + "; ";
 
             i = statement.executeUpdate(dltQuery);
 
@@ -80,9 +80,9 @@ public class SearchReservationAccess {
         }
 
         if (i != 0) {
-            return "Reservation  deleted successfully";
+            return "Ticket  deleted successfully";
         } else {
-            return "Reservation  not deleted";
+            return "Ticket  not deleted";
         }
     }
   
