@@ -51,6 +51,8 @@ public class CreateReservationServlet extends HttpServlet {
              FlightAccess flightAccess = new FlightAccess();
                     List flightDetails = flightAccess.viewAllFlightDetails();
                     
+                    request.setAttribute("userId", userId);
+                    
                     request.setAttribute("result", flightDetails);
                     
                     RequestDispatcher rd = request.getRequestDispatcher("AllFlightDetails.jsp");
