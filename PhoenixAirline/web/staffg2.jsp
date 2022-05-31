@@ -33,7 +33,7 @@
        
  
             <!--===========Main=============-->
-      <div class="main">
+      <div class="main" style="background-image:url( media/home.jpg); background-size: cover;">
         <form  action="<%=request.getContextPath()%>/SearchUserStf2Servlet" method="POST">
           <div class="topbar">
               
@@ -74,7 +74,7 @@
             </div>
 
             <table>
-                <thead >
+                <thead ><br><br>
                     <tr style="box-shadow: 0 1px 10px black; border-radius: 12px; line-height: 4vh">
                   <td>First Name</td>
                   <td>Last Name</td>
@@ -98,10 +98,10 @@
               <form action="UpdateDeleteUserServlet" method="post">
                   <input type="hidden" name="uid" value="<%=itr.next()%>"/>
 
-                    <td> <input type="text" name="fName" style="border-style: hidden; "  value="<%=itr.next()%>"></td>
-                    <td> <input type="text" name="lName" style="border-style: hidden; "  value="<%=itr.next()%>"></td>
-                    <td> <input type="text" name="email" style="border-style: hidden; "  value="<%=itr.next()%>"></td>
-                    <td> <input type="text" name="userName" style="border-style: hidden;"  value="<%=itr.next()%>"></td>
+                    <td><%=itr.next()%></td>
+                    <td><%=itr.next()%></td>
+                    <td><%=itr.next()%></td>
+                    <td><%=itr.next()%></td>
                     <td><%=itr.next()%></td>
                     <td><%=itr.next()%></td>
               </form>

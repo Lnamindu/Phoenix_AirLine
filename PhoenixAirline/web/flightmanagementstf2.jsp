@@ -17,7 +17,7 @@
     <div class="container">
       <jsp:include page="navBarstf2.jsp" />
         
-        <div class="main">
+        <div class="main" style="background-image:url( media/home.jpg); background-size: cover;">
         <form action="SearchFlightInfoServlet" method="POST">
           <div class="topbar">
             <div class="dropdown">Takeoff Airport 

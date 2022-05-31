@@ -5,7 +5,6 @@
 {
     position:fixed;
     width:auto;
-    top: 15vh;
     min-height:100vh;
     background: var(--white);
     transition: 0.5s;
@@ -148,9 +147,8 @@
 .details .recent
 {
     position: relative;
-    display:grid;
     min-height: 500px;
-    background:var(--white);
+    background:#0000009c;
     padding: 20px;
     box-shadow: 0 7px 25px rgba(0,0,0,0.08);
     border-radius: 20px;
@@ -166,7 +164,7 @@
 .cardheader h2
 {
     font-weight: 600;
-    color:var(--red);
+    color:var(--white);
 }
 
 .cardheader .btn
@@ -182,18 +180,17 @@
 .details table
 {
     width:100%;
-    border-collapse: collapse;
-    margin-top: 10px;
+    color:var(--white);
+    border-spacing: 0 16px;
 }
 
 
 td{
-    text-align: left;
+    text-align: center;
 }
 .details table thead td
 {
     font-weight: 600;
-    font-size: 18px;
     
 }
 
@@ -203,9 +200,13 @@ td{
 
 .details .recent table tr
 {
-    color:var(--black1);
+    color:var(--white);
     border-bottom:1px solid rgba(0,0,0,0.2);
     
+}
+.details .recent table th
+{
+    border-spacing:10px 5rem;
 }
 
 .details .recent table tr:last-child
@@ -214,8 +215,7 @@ td{
 }
 .details .recent table tbody tr:hover
 {
-    background: var(--black);
-    color:var(--red);
+    color:grey;
     
     
 }
@@ -244,23 +244,6 @@ td{
     text-align: center;
 } */
 
-.status.ok
-{
-    padding: 2px 15px;
-    background: rgb(12, 176, 20);
-    color:var(--white);
-    border-radius:4px ;
-    font-size:14px;
-    font-weight: 400;
-    border: #fff;
-
-}
-
-.status.ok:hover
-{
-    font-size: 15px;
-    font-weight: 500;
-}
 
 
 .cal

@@ -9,9 +9,10 @@
         <title>User Page</title>
     <!--(main css)-->
     <link href="css/main.css" rel="stylesheet" type="text/css"/>
-    
+    <link href="Landing Page/css/vegas.min.css" rel="stylesheet" type="text/css"/>
+    <link href="Landing Page/css/animate.min.css" rel="stylesheet" type="text/css"/>
 <!--    css-->
-<link href="css/Flightinfo.css" rel="stylesheet" type="text/css"/>
+<link href="css/home.css" rel="stylesheet" type="text/css"/>
     </head>
     <% //In case, if Admin session is not set, redirect to Login page
         if ((request.getSession(false).getAttribute("client") == null)) {
@@ -31,7 +32,7 @@
             <li>
                 <a href="<%=request.getContextPath()%>/ViewFlightInfoServlet">
                     <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-                    <span class="title">Filght Informations</span>
+                    <span class="title">Flight Information</span>
                 </a>
             </li>
             <li>
@@ -46,7 +47,7 @@
                  <form id="prf" method="get" action="ProfileDetailsServlet"> 
                         
                      <input type="hidden" name="uid" value="<%=request.getAttribute("uid")%>">
-                        <a href="#" onclick="goToProfilePage()">                   
+                        <a href="html/Userprofile.jsp" onclick="goToProfilePage()">                   
                         <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
                         <span class="title">Profile</span>
                         </a>
@@ -63,68 +64,14 @@
         </ul>
     </div>
          <!--===========Main=============-->
-      <div class="main">
-        <form action="" method="POST">
-          <div class="topbar">
-            <div class="dropdown">Departure Airport 
-                <select class="drop-btn" name="" id="">
-                  <option value="">country 1</option>
-                  <option value="">country 2</option>
-                  <option value="">country 3</option>
-                  <option value="">country 4</option>
-                </select>
-            </div>
-  
-            <div class="dropdown">Destination Airport 
-              <select class="drop-btn" name="" id="">
-                <option value="">country 1</option>
-                <option value="">country 2</option>
-                <option value="">country 3</option>
-                <option value="">country 4</option>
-              </select>
-            </div>
-  
-            <label for="" class="cal">Landing Date  <input type="date" id="cale" name="d-date" /></label>
-              <button class="drop-btn">Submit</button>
-              <button class="drop-btn">Reset</button>
-            
+      <div class="main" style="background-image:url( media/home.jpg); background-size: cover">
+          <div class="grid">
+              <a "wow fadeInUp" data-wow-delay="0.6s" style="width:35vw; height: 65vh; background-color: #0000009c ; border-radius:12px; text-align: center; text-decoration: none; padding-top: 30vh; font-size: 20px; color: white; " href="<%=request.getContextPath()%>/ViewFlightInfoServlet">Flight <br>Information</a>
+              <a "wow fadeInUp" data-wow-delay="0.9s" style="width:35vw; height: 65vh; background-color: #0000009c ; border-radius:12px; text-align: center; text-decoration: none; padding-top: 30vh; font-size: 20px; color: white;  " href="<%=request.getContextPath()%>/SelectTicketServlet">Reservation</a>
           </div>
-        </form>
-        
-
-        <!--============= Flights ============-->
-        <div class="details">
-          <div class="recent">
-            <div class="cardheader">
-              <h2>Flights</h2>
-              <a href="#" class="btn">View All</a>
-            </div>
-
-            <table>
-              <thead>
-                <tr>
-                  <td>Take-off Airport</td>
-                  <td>Take-off Date</td>
-                  <td>Take-off Time</td>
-                  <td>Landing Airport</td>
-                  <td>Landing Date</td>
-                  <td>Landing Time</td>
-                </tr>
-              </thead>
-
-              <tbody>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <input type="submit" class="status ok" value="Book Now" />
-                  </td>
-                </tr>
-              </tbody>
+      </div>
+    </div>
+  
 
           
     <!--========scripts=======-->
@@ -136,15 +83,10 @@
                         }
                     </script>
 
-    <!--ionicons-->
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
+    
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
   
 

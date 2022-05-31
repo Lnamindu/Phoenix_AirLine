@@ -25,33 +25,21 @@
             <ul>
                 <li></li>
             <li>
-                <a href="html/Userflights.html">
+                <a href="<%=request.getContextPath()%>/ViewFlightInfoServlet">
                     <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-                    <span class="title">Flight Informations</span>
+                    <span class="title">Flight Information</span>
                 </a>
             </li>
             <li>
-                <a href="html/Reservations.html">
+                <a href="<%=request.getContextPath()%>/SelectTicketServlet">
                     <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
                     <span class="title">Reservation</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
-                    <span class="title">Messages</span>
                 </a>
             </li>
             <li>
                 <a href="html/Userprofile.html">
                     <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
                     <span class="title">Profile</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
-                    <span class="title">Settings</span>
                 </a>
             </li>
             <!-- <li>
@@ -61,7 +49,7 @@
                 </a>
             </li> -->
             <li>
-                <a href="#">
+                <a href="<%=request.getContextPath()%>/LogoutServlet">
                     <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
                     <span class="title">Sign Out</span>
                 </a>
@@ -146,10 +134,8 @@
 
     </div>
     <!--========scripts=======-->
-    <script src="adminmain.js"></script>
-
-    <!--ionicons-->
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="adminmain.js">
+        
+    </script>
 </body>
 </html>

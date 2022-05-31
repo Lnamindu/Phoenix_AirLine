@@ -1,33 +1,97 @@
-<%-- 
-    Document   : AddFlight
-    Created on : May 19, 2022, 6:14:34 PM
-    Author     : dell
---%>
 
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/main.css" rel="stylesheet" type="text/css"/>
+        <link href="css/Flightinfo.css" rel="stylesheet" type="text/css"/>
         <title>Add Flight Details</title>
     </head>
     <body>
-        <h1>Add Flight Details</h1>
-        <div>
-            <form method="post" action="<%=request.getContextPath()%>/AddFlightInfoServlet">
-                Flight id <input type="hidden" name="flight_Id" value="1"/><br>
-                Aircraft Id <input type="text" name="aircraft_id">
-                Takeoff_airport  <input type="text" name="takeoff_airport"/><br>
-                Takeoff Time  <input type="text" name="takeoff_time"/><br>
-                Takeoff Date  <input type="text" name="takeoff_date"/><br>
-                Landing airport  <input type="text" name="landing_airport"/><br>
-                Landing Time  <input type="text" name="landing_time"/><br>
-                Landing Date  <input type="text" name="landing_date"/><br>
-                Gate No <input type="text" name="gate"/><br>
-                Cost for Flight <input type="text" name="cost">
-                <input type="submit" name="Add Flight"/>
-                <input type="reset" name="Cancel"/>
+        
+        <!--Navigation-->
+    <div class="container">
+      <jsp:include page="navBar_staff.jsp" />
+        
+        <div class="main">
+   
+            
+         <center>
+                <h3 style="color:green"> ${message}</h3>
+         </center>
+        
+<!--        Flights-->
+        
+        <div class="details">
+          <div class="recent">
+            <div class="cardheader">
+              <h2>Add Flights</h2>
+              <!--<a href="AddUser.jsp" style="text-decoration: none" class="status ok">Add Flight</a>-->
+            </div>
+             
+        <table>
+            <thead style="box-shadow: 0 1px 10px black; padding: 20px">
+            <th></th>
+            <th>Takeoff Airport</th>
+            <th>Takeoff Time</th>
+            <th>Takeoff Date</th>
+            <th>Landing Airport</th>
+            <th>Landing Time</th>
+            <th>Landing Date</th>
+            <!--<th>Gate</th>-->
+            <th>Cost</th>
+            <!--<th>Aircraft</th>-->
+            <th>Action</th>
+        </thead>
+        <tbody>
+            
+          
+            <tr>
+        <form action="AddFlightInfoServlet" method="post">
+
+            <!--<td><input type="hidden" name="flightId" /></td>-->
+            <td>  <select class="drop-btn" name="takeoff_airport" id="">
+                    <option value="Colombo">Colombo</option>
+                    <option value="London">London</option>
+                    <option value="Melbourne">Melbourne</option>
+                 </select>
+            </td>
+            <td> <input type="date" class="drop-btn" name="takeoff_time"></td>
+            <td> <input type="text" class="drop-btn" name="takeoff_date"></td>
+            <td> <select class="drop-btn" name="landing_airport" id="">
+                    <option value="Colombo">Colombo</option>
+                    <option value="South Africa">South Africa</option>
+                    <option value="England">England</option>
+                </select>
+            </td>
+            <td> <input type="text" class="drop-btn" name="landing_time"></td>
+            <td> <input type="date" class="drop-btn" name="landing_date"></td>
+            <!--<td> <input type="hidden" name="gate"></td>-->
+            <td> <input type="text" class="drop-btn" name="cost""></td>
+            <!--<td> <input type="hidden" name="aircraft_id"></td>-->
+                
+                
+                <td>
+                    
+                    <input type="submit" style="padding: 10px 35px 10px 35px; border-radius: 30px  " class="status ok" name="AddFlight" value="Add"/> <br> <br>
+                  
+                </td>
+                 
             </form>
+        
+
+                
+            </tr>
+        </tbody>
+    </table>
+
+
         </div>
-    </body>
+        </div>
+        </div>
+</body>
 </html>

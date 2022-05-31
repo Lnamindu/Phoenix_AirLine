@@ -1,137 +1,5 @@
 
 
-/*===================Main======================*/
-
-
-.main
-{
-    position:absolute;
-    width:auto;
-    top: 15vh;
-    min-height:100vh;
-    background: var(--white);
-    transition: 0.5s;
-}
-.main.active
-{
-    
-    width:calc(100% - 80px);
-    left:80px;
-}
-.topbar
-{
-    width:100vw;
-    padding: 0 5vw;
-    height: 120px;
-    display: flex;
-    justify-content: space-between;
-    align-items:center;
-
-}
-
-.toggle
-{
-    position: relative;
-    width:60px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2.5rem;
-    cursor: pointer;
-
-}
-
-.search
-{
-    position: relative;
-    width:400px;
-    margin:0 10px;
-}
-
-.search label
-{
-    position:relative;
-    width:100%;
-}
-
-.search label input
-{
-    width:100%;
-    height: 40px;
-    font-family: 'Poppins',sans-serif;
-    border-radius: 40px;
-    padding: 5px 20px;
-    padding-left: 35px;
-    font-size: 18px;
-    outline: none;
-    border:1px solid var(--black2);
-    z-index: 100;
-    
-}
-
-
-
-.search label ion-icon
-{
-    position: absolute;
-    top:0;
-    left: 10px;
-    font-size:1.2rem;
-
-}
-
-.drop-btn {
-    background-color: white;
-    color: #000000;
-    padding: 9px 31px;
-    font-size: 16px;
-    border-radius: 49px;
-    cursor: pointer;
-    font-weight: 600;
-    border-color: #000000;
-    
-    
-  }
-  
-.dropdown {
-    position: relative;
-    display: inline-block;
-    padding: 0 10px;
-    
-  }
-  
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    border-radius: 20px;
-    justify-content: center;
-  }
-  
-.dropdown-content a {
-    color: #000000;
-    margin: 6px;
-    padding: 7.5px 26px;
-    text-decoration: none;
-    display: block;
-    
-    
-  }
-  
-.dropdown-content a:hover {background-color: #000000;border:2px;border-radius: 20px;color: #fff;}
-  
-.dropdown:hover .dropdown-content {
-    display: block;
-  }
-  
-.dropdown:hover .dropbtn {
-    background-color: #0d76a3;
-  }
-
 
 
 /*=========Flights===========*/
@@ -150,9 +18,8 @@
 .details .recent
 {
     position: relative;
-    display:grid;
     min-height: 500px;
-    background:var(--white);
+    background:#0000009c;
     padding: 20px;
     box-shadow: 0 7px 25px rgba(0,0,0,0.08);
     border-radius: 20px;
@@ -168,7 +35,7 @@
 .cardheader h2
 {
     font-weight: 600;
-    color:var(--red);
+    color:var(--white);
 }
 
 .cardheader .btn
@@ -184,8 +51,8 @@
 .details table
 {
     width:100%;
-    border-collapse: collapse;
-    margin-top: 10px;
+    color:var(--white);
+    border-spacing: 0 16px;
 }
 
 
@@ -200,21 +67,17 @@ td{
 
 .details .recent table tr
 {
-    color:var(--black1);
-    border-bottom:1px solid rgba(0,0,0,0.2);
-    
+    color:var(--white);
+    border-bottom:1px solid rgb(255 255 255 / 35%);
 }
 
-.details .recent table tr:last-child
+.details .recent table th
 {
-    /* border-bottom: none; */
+    border-spacing:10px 5rem;
 }
 .details .recent table tbody tr:hover
 {
-    background: var(--black);
-    color:rgb(86, 1, 1);
-    
-    
+    color:grey;
 }
 
 .details .recent table tr td
@@ -228,12 +91,12 @@ td{
 
 .details .recent table tr td:last-child
 {
-    text-align: end;
+    
 }
 
 .details .recent table tr td:nth-child(2)
 {
-    text-align: end;
+    
 }
 
 .details .recent table tr td:nth-child(3)

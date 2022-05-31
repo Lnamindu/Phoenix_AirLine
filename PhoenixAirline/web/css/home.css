@@ -1,0 +1,100 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : May 30, 2022, 10:37:39 AM
+    Author     : naminduhasalanka
+*/
+
+/*=========Flights===========*/
+
+.grid
+{
+    position:relative;
+    width:100vw;
+    padding:2vh 20vw;
+    top: 20vh;
+    display: flex;
+    grid-template-columns: 2fr;
+    grid-gap:10vw;
+    text-decoration: none;
+    /*margin-top: 10px;*/
+    
+  -webkit-animation: fadeIn linear 2s;
+}
+
+
+
+.status.ok
+{
+    padding: 2px 15px;
+    background: rgb(12, 176, 20);
+    color:var(--white);
+    border-radius:4px ;
+    font-size:14px;
+    font-weight: 400;
+    border: #fff;
+
+}
+
+.status.not
+{
+    padding: 2px 15px;
+    background: var(--red);
+    color:var(--white);
+    border-radius:4px ;
+    font-size:14px;
+    font-weight: 400;
+    border: #fff;
+
+}
+
+.status.ok:hover
+{
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.status.not:hover
+{
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.cal
+{
+    padding-right: 5px;
+    padding-left: 15px;
+    font-family: 'Poppins';
+    font-weight: 600;
+    color: #000000;
+}
+
+
+#cale
+{
+    width: 200px;
+    padding: 8px 10px;
+    border-radius: 30px;
+    border-color: #05445e;
+}
+
+#count
+{
+    width: 80px;
+    font-size: 18px;
+    padding: 8px 20px;
+    border-color: #05445e;
+    border-radius: 50px;
+
+    
+
+}
+
+
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}

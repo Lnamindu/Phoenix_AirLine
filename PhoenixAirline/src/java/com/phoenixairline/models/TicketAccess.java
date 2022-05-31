@@ -24,25 +24,23 @@ public class TicketAccess {
             resultSet = statement.executeQuery("SELECT * FROM flight WHERE id='"+flightId+"';");
 
             while (resultSet.next()) {
+                String id = resultSet.getString("id");
                 String takeoff_airport = resultSet.getString("takeoff_airport");
                 String takeoff_time = resultSet.getString("takeoff_time");
                 String takeoff_date = resultSet.getString("takeoff_date");
                 String landing_airport = resultSet.getString("landing_airport");
                 String landing_time = resultSet.getString("landing_time");
                 String landing_date = resultSet.getString("landing_date");
-                String gate = resultSet.getString("gate");
                 float cost = resultSet.getFloat("cost");
-                String aircraftId = resultSet.getString("aircraft_flight");
 
+                flight_details.add(id);
                 flight_details.add(takeoff_airport);
                 flight_details.add(takeoff_time);
                 flight_details.add(takeoff_date);
                 flight_details.add(landing_airport);
                 flight_details.add(landing_time);
                 flight_details.add(landing_date);
-                flight_details.add(gate);
                 flight_details.add(cost);
-                flight_details.add(aircraftId);
             }
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -58,11 +56,16 @@ public class TicketAccess {
         int flightId = ticketBean.getFlightId();
         int seatId = ticketBean.getSeatId();
         String classId = ticketBean.getClassId();
+        System.out.println(price);
+        System.out.println(userId);
+        System.out.println(flightId);
+        System.out.println(seatId);
+        System.out.println(classId);
 
         con = ConnectToDB.createConnection();
         try {
             statement = con.createStatement();
-            String InsertQuery = "INSERT INTO ticket ('price', 'user_ticket', 'flight_ticket', 'seat_ticket', 'class_ticket') VALUES ('" + price + "', '" + userId + "', '" + flightId + "', '" + seatId + "', '" + classId + "');";
+            String InsertQuery = "INSERT INTO ticket (user_ticket, price, flight_ticket, seat_ticket, class_ticket) VALUES ('" + userId + "', '" + price + "', '" + flightId + "', '" + seatId + "', '" + classId + "');";
            
 
         i = statement.executeUpdate(InsertQuery);

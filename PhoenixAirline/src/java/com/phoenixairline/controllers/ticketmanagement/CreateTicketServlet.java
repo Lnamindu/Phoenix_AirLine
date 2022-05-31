@@ -28,14 +28,16 @@ public class CreateTicketServlet extends HttpServlet {
         TicketAccess ticketaccess = new TicketAccess();
         selectedValues = ticketaccess.getSelectedData(flightId);
         request.setAttribute("selectedResult", selectedValues);
-        RequestDispatcher rd = request.getRequestDispatcher("AllFlightDetails.jsp");
-        rd.forward(request, response);
+        
         
         
         String classId = request.getParameter("class");
+        System.out.println(classId);
         int seatId = Integer.parseInt(request.getParameter("seatNumber"));
-        int seats = Integer.parseInt(request.getParameter("seats"));//check with db date type
-        float price = Float.parseFloat(request.getParameter("flightPrice"));
+        System.out.println(seatId);
+        int seats = Integer.parseInt(request.getParameter("seats"));
+        System.out.println(seats);
+        float price = Float.parseFloat(request.getParameter("cost"));
         switch (classId) {
             case "101":
                 price = (float) (price * 1.9)*seats;
@@ -59,7 +61,10 @@ public class CreateTicketServlet extends HttpServlet {
         System.out.println("After send");
         String result = ticketAccess.createTicket(ticketBean);
         PrintWriter out = response.getWriter();
-        out.println(result);
+        System.out.println(result);
+        
+        RequestDispatcher rd = request.getRequestDispatcher("Booking.jsp");
+        rd.forward(request, response);
     }
 
     @Override

@@ -21,65 +21,15 @@
     <body>
         <div class="container">
             <jsp:include page="navBarAdmin.jsp"/>
-              
-        <br><br><br><br><br><br><br><br><br>
-       
-        <%
-            if ((request.getAttribute("monitor_table") == null)) {
-                request.getRequestDispatcher("AdminDCServlet").forward(request, response);
-            }
-        %>
-
-
-  
-
-    <table border="1">
-        <thead>
-        </thead>
-        <tbody>
-            <%
-                if ((request.getAttribute("monitor_table") != null)) {
-                    List data = new ArrayList();
-                    data = (List) request.getAttribute("monitor_table");
-                    Iterator itr = data.iterator();
-                    while (itr.hasNext()) {
-            %>
-            <tr>
-                <td><%=itr.next()%></td>
-                <td><%=itr.next()%></td>
-                <td><%=itr.next()%></td>
-                <td><%=itr.next()%></td>
-                <td><%=itr.next()%></td>
-                <td><%=itr.next()%></td>
-                <td><%=itr.next()%></td>
-            </tr>
-            <%}
-                }%>
-        </tbody>
-    </table>
-
-       
-        
-        <div class="main">
-       
-           <center>
-                <h3 style="color:green"> ${message}</h3>
-         </center>
-          
-
-        <!--<div style="text-align: right"><a href="<%=request.getContextPath()%>/LogoutServlet">Logout</a></div>-->
-
-
-        <table border="1">
-            <thead>
-            </thead>
-        </table>
             
-             <!--=============flight management============-->
+            
+            <div class="main"style="background-image:url( media/home.jpg); background-size: cover;">
+               
+                 <!--=============flight management============-->
         <div class="details">
           <div class="recent">
             <div class="cardheader">
-              <h2> Approvel</h2>
+              <h2> Approval</h2>
               <!--<a href="AddUser.jsp" style="text-decoration: none" class="status ok">Add User</a>-->
             </div>
 
@@ -110,7 +60,7 @@
                 <td><%=itr.next()%></td>
                 <td><%=itr.next()%></td>
                 <td>
-                    <input type="submit" value="Approve" />
+                    <input type="submit" class="status ok" value="Approve" />
                 </td>
                 </tr>
             </form>
@@ -123,12 +73,67 @@
               
             </table>
           </div>
-        </div>
+       
+        <%
+            if ((request.getAttribute("monitor_table") == null)) {
+                request.getRequestDispatcher("AdminDCServlet").forward(request, response);
+            }
+        %>
+
+
+  
+
+ 
+
+       
+        
+<!--        <div class="main">
+       
+           <center>
+                <h3 style="color:green"> ${message}</h3>
+         </center>
+          
+
+        <div style="text-align: right"><a href="<%=request.getContextPath()%>/LogoutServlet">Logout</a></div>
+
+
+        <table border="1">
+            <thead>
+            </thead>
+        </table>
+               <table border="1">
+        <thead>
+        </thead>
+        <tbody>
+            <%
+                if ((request.getAttribute("monitor_table") != null)) {
+                    List data = new ArrayList();
+                    data = (List) request.getAttribute("monitor_table");
+                    Iterator itr = data.iterator();
+                    while (itr.hasNext()) {
+            %>
+            <tr>
+                <td><%=itr.next()%></td>
+                <td><%=itr.next()%></td>
+                <td><%=itr.next()%></td>
+                <td><%=itr.next()%></td>
+                <td><%=itr.next()%></td>
+                <td><%=itr.next()%></td>
+                <td><%=itr.next()%></td>
+            </tr>
+            <%}
+                }%>
+        </tbody>
+    </table>
+        
+        </div>-->
               
        
           
       </div>
         </div>
+        </div>
+            
         
         
         

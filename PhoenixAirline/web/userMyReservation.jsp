@@ -12,24 +12,74 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/main.css" rel="stylesheet" type="text/css"/>
+        <link href="css/reservation.css" rel="stylesheet" type="text/css"/>
         <title>My Reservation</title>
     </head>
     <body>
-        <h1>My Reservation</h1>
-        <div align="center">              
-            <table border="1">
-                <thead>
-                    <tr>
+        
+        <!--Navigation-->
+    <div class="container">
+      <div class="navigation">
+        <div class="logo">
+            <img src="media/Phoenixlogo.png" style="width: 200px; height:auto ; padding-top: 1vh;" alt="">
+        </div>
+        <ul>
+            <li></li>
+            <li>
+                <a href="<%=request.getContextPath()%>/ViewFlightInfoServlet">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                    <span class="title">Flight Information</span>
+                </a>
+            </li>
+            <li>
+                <a href="<%=request.getContextPath()%>/SelectTicketServlet">
+                    <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+                    <span class="title">Reservations</span>
+                </a>
+            </li>
+            <li>
+                <a href="html/Userprofile.jsp">
+                    <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+                    <span class="title">Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="<%=request.getContextPath()%>/LogoutServlet">
+                    <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                    <span class="title">Sign Out</span>
+                </a>
+            </li>
+           
+        </ul>
+    </div>
+        
+        <div class="main" style="background-image:url( media/home.jpg); background-size: cover;">
+            <div class="topbar"></div>
+        
+<!--Reservations-->
+        
+        <div class="details">
+          <div class="recent">
+            <div class="cardheader">
+              <h2>My Reservations</h2>
+              <a style="text-decoration: none;" href="<%=request.getContextPath()%>/ViewFlightInfoServlet" class="status ok">Book Ticket</a>
+            </div><br><br>
+             
+        <table>
+            <thead>
+                <tr>
                         <th>User First Name</th>
                         <th>Takeoff Airport</th>
                         <th>Landing Airport</th>
                         <th>Takeoff Date</th>
                         <th>Takeoff Time</th>
-                        <th>Gate</th>
                         <th>Seat Number</th>
                         <th>Total Price</th>
                     </tr>
-                </thead>
+            <td></td>
+            </thead><br><br>
+        <form action="userUpdateReservation.jsp" method="POST">
                 <tbody>
                     <%
                         if ((request.getAttribute("reservationResult") != null)) {
@@ -46,16 +96,27 @@
                         <td><%=itr.next()%></td>
                         <td><%=itr.next()%></td>
                         <td><%=itr.next()%></td>
-                        <td><%=itr.next()%></td>
+                        <td>
+                            <input type="hidden" name="ticket_id" value="" />
+                            <input class="status ok" type="submit" value="Update" />
+                            
+                        </td>
                     </tr>
                     <%}
                         }%>
                 </tbody>
-            </table>
-            <form action="userUpdateReservation.jsp" method="POST">
-                <input type="hidden" name="ticket_id" value="" />
-                <input type="submit" value="Update" />
             </form>
+        </tbody>
+    </table>
+
         </div>
-    </body>
+        </div>
+        </div>
+                
+                               
+    <!--========scripts=======-->
+  
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
 </html>

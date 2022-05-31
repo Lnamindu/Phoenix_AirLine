@@ -8,6 +8,8 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
+    background-image:url( media/home.jpg); 
+    background-size: cover;
 
 }
 
@@ -108,13 +110,13 @@ body
     display: block;
     min-width: 50px;
     top: 2vh;
-    height: 50px;
+    height: 35px;
     text-align: center;
 }
 
 .navigation ul li a .icon ion-icon
 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .navigation ul li a .title
@@ -176,7 +178,7 @@ body
 .topbar
 {
     width:100vw;
-    padding: 0 5vw;
+    padding: 20vh 5vw 10vh 5vw;
     height: 120px;
     display: flex;
     justify-content: space-between;
@@ -286,6 +288,44 @@ body
 .dropdown:hover .dropbtn {
     background-color: #0d76a3;
   }
+  
+  
+  
+  
+  
+  .status.ok
+{
+    padding: 2px 15px;
+    background: rgb(12, 176, 20);
+    color:var(--white);
+    border-radius:4px ;
+    font-size:14px;
+    font-weight: 400;
+    border: #fff;
+
+}
+
+.status.ok:hover
+{
+    background: rgb(12, 176, 25);
+}
+
+.status.not
+{
+    padding: 2px 15px;
+    background: var(--red);
+    color:var(--white);
+    border-radius:4px ;
+    font-size:14px;
+    font-weight: 400;
+    border: #fff;
+
+}
+
+.status.not:hover
+{
+    
+}
 
 
 
@@ -294,7 +334,7 @@ body
 {
     .navigation
     {
-        left:-300px;
+        left: 0px;
     }
 
     .navigation.active

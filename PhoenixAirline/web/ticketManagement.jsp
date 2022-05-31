@@ -31,10 +31,9 @@
             <!--end navbar-->
             
 
-       
- <br><br><br><br><br>
+ 
             <!--===========Main=============-->
-      <div class="main">
+      <div class="main" style="background-image:url( media/home.jpg); background-size: cover;">
         <form  action="<%=request.getContextPath()%>/ShowReservationServlet" method="POST">
           <div class="topbar">
               
