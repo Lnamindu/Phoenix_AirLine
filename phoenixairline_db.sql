@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 31, 2022 at 06:18 PM
+-- Generation Time: May 31, 2022 at 10:01 PM
 -- Server version: 10.5.13-MariaDB-0ubuntu0.21.04.1
 -- PHP Version: 7.4.16
 
@@ -107,13 +107,22 @@ INSERT INTO `flight` (`id`, `takeoff_airport`, `takeoff_time`, `takeoff_date`, `
 --
 
 CREATE TABLE `reservation` (
-  `userId` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
+  `userId` int(45) NOT NULL,
   `takeOff_airport` varchar(45) NOT NULL,
   `takeOff_date` varchar(45) NOT NULL,
   `take_off_time` varchar(45) NOT NULL,
   `landing_airport` varchar(45) NOT NULL,
   `cost` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `reservation`
+--
+
+INSERT INTO `reservation` (`id`, `userId`, `takeOff_airport`, `takeOff_date`, `take_off_time`, `landing_airport`, `cost`) VALUES
+(1, 1000, 'London', 'London', 'null', 'Colombo', '15000.0'),
+(2, 1000, 'London', 'London', '1:00PM', 'Colombo', '15000.0');
 
 -- --------------------------------------------------------
 
@@ -472,7 +481,24 @@ INSERT INTO `session` (`id`, `login_time`, `ip_address`, `user_session`) VALUES
 (295, 'Tue May 31 18:00:17 IST 2022', '127.0.0.1', 1000),
 (296, 'Tue May 31 18:14:08 IST 2022', '127.0.0.1', 1000),
 (297, 'Tue May 31 18:14:51 IST 2022', '127.0.0.1', 1000),
-(298, 'Tue May 31 18:16:28 IST 2022', '127.0.0.1', 1000);
+(298, 'Tue May 31 18:16:28 IST 2022', '127.0.0.1', 1000),
+(299, 'Tue May 31 18:20:47 IST 2022', '127.0.0.1', 1000),
+(300, 'Tue May 31 18:21:01 IST 2022', '127.0.0.1', 1003),
+(301, 'Tue May 31 18:45:02 IST 2022', '127.0.0.1', 1000),
+(303, 'Tue May 31 18:50:32 IST 2022', '127.0.0.1', 1000),
+(304, 'Tue May 31 18:56:57 IST 2022', '127.0.0.1', 1000),
+(305, 'Tue May 31 19:10:11 IST 2022', '127.0.0.1', 1000),
+(306, 'Tue May 31 19:12:38 IST 2022', '127.0.0.1', 1000),
+(307, 'Tue May 31 19:15:09 IST 2022', '127.0.0.1', 1000),
+(308, 'Tue May 31 19:16:59 IST 2022', '127.0.0.1', 1000),
+(309, 'Tue May 31 19:31:35 IST 2022', '127.0.0.1', 1000),
+(310, 'Tue May 31 19:35:39 IST 2022', '127.0.0.1', 1000),
+(311, 'Tue May 31 21:23:43 IST 2022', '127.0.0.1', 1000),
+(312, 'Tue May 31 21:36:02 IST 2022', '127.0.0.1', 1000),
+(314, 'Tue May 31 21:41:50 IST 2022', '127.0.0.1', 1000),
+(315, 'Tue May 31 21:43:13 IST 2022', '127.0.0.1', 1000),
+(316, 'Tue May 31 21:51:41 IST 2022', '127.0.0.1', 1000),
+(317, 'Tue May 31 21:53:57 IST 2022', '127.0.0.1', 1000);
 
 -- --------------------------------------------------------
 
@@ -494,7 +520,7 @@ CREATE TABLE `ticket` (
 --
 
 INSERT INTO `ticket` (`id`, `user_ticket`, `price`, `flight_ticket`, `seat_ticket`, `class_ticket`) VALUES
-(2, 1001, 200, 2, 6, '102'),
+(2, 1001, 20000, 2, 6, '102'),
 (3, 1014, 95000, 4, 1, '101'),
 (4, 1014, 75000, 3, 2, '103'),
 (5, 1014, 15000, 4, 2, '102'),
@@ -572,6 +598,12 @@ ALTER TABLE `flight`
   ADD KEY `aircraft_flight` (`aircraft_flight`);
 
 --
+-- Indexes for table `reservation`
+--
+ALTER TABLE `reservation`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `seat`
 --
 ALTER TABLE `seat`
@@ -614,6 +646,12 @@ ALTER TABLE `flight`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `reservation`
+--
+ALTER TABLE `reservation`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `seat`
 --
 ALTER TABLE `seat`
@@ -623,7 +661,7 @@ ALTER TABLE `seat`
 -- AUTO_INCREMENT for table `session`
 --
 ALTER TABLE `session`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=299;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=318;
 
 --
 -- AUTO_INCREMENT for table `ticket`
