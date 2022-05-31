@@ -46,8 +46,6 @@ public class SearchReservationAccess {
      public String UpdateTicket(Reservation reservation) {
         int id = Integer.parseInt(reservation.getId());
         float price =  Float.parseFloat(reservation.getCost());
-        String userReservation = reservation.getCost();
-
         con = ConnectToDB.createConnection();
         try {
             statement = con.createStatement();

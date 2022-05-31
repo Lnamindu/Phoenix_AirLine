@@ -75,6 +75,10 @@
             
           </div>
         </form>
+            
+<!--            <center>
+                <h3 style="color:green"> ${message}</h3>
+         </center>-->
         
         
 <!--        Flights-->
@@ -107,15 +111,19 @@
                     while (itr.hasNext()) {
             %>
             <tr>
-        <form action="CreateTicketServlet" method="POST">
+        <form action="CreateReservationServlet" method="POST">
+            <input type="hidden" name="uid" value="<%=request.getAttribute("userId")%>">
                 <td><input type="hidden" name="flightId" value="<%=itr.next()%>"/></td>
-                <td><%=itr.next()%></td>
-                <td><%=itr.next()%></td>
-                <td><%=itr.next()%></td>
-                <td><%=itr.next()%></td>
-                <td><%=itr.next()%></td>
-                <td><%=itr.next()%></td>
-                <td><%=itr.next()%></td>
+                
+                <td> <input type="text" name="takeoffAir" style="border-style: hidden" value="<%=itr.next()%>"></td>
+                <td> <input type="text" name="takeoffTime" style="border-style: hidden" value="<%=itr.next()%>"></td>
+                <td> <input type="text" name="takeoffDate" style="border-style: hidden" value="<%=itr.next()%>"></td>
+                <td> <input type="text" name="landing_airport" style="border-style: hidden" value="<%=itr.next()%>"></td>
+                <td> <input type="text" name="landing_time" style="border-style: hidden" value="<%=itr.next()%>"></td>
+                <td> <input type="text" name="landing_date" style="border-style: hidden" value="<%=itr.next()%>"></td>
+                <td> <input type="text" name="cost" style="border-style: hidden" value="<%=itr.next()%>"></td>
+                
+                
                 <td><input type="submit" class="status ok" value="Book now" /></td>
         </form>
 

@@ -28,11 +28,14 @@ public class ViewFlightInfoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 
         PrintWriter out=null;
+        
+            String id=request.getParameter("uid");
              
                 try {
                     FlightAccess flightAccess = new FlightAccess();
                     List flightDetails = flightAccess.viewAllFlightDetails();
                     
+                    request.setAttribute("userId", id);
                     request.setAttribute("result", flightDetails);
                     
                     RequestDispatcher rd = request.getRequestDispatcher("AllFlightDetails.jsp");

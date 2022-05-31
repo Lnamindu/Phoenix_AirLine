@@ -30,10 +30,14 @@
         <ul>
             <li></li>
             <li>
-                <a href="<%=request.getContextPath()%>/ViewFlightInfoServlet">
-                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-                    <span class="title">Flight Information</span>
-                </a>
+                <form id="x" method="get" action="ViewFlightInfoServlet"> 
+                     <input type="hidden" name="uid" value="<%=request.getAttribute("uid")%>">
+                    <a href="#" onclick="showFlightDetails()">
+                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                        <span class="title">Flight Information</span>
+                    </a>
+                    
+                </form>>
             </li>
             <li>
                 <a href="<%=request.getContextPath()%>/SelectTicketServlet">
@@ -80,6 +84,10 @@
                     <script>
                         function goToProfilePage() {
                             document.getElementById("prf").submit();
+                        }
+                        
+                        function showFlightDetails() {
+                            document.getElementById("x").submit();
                         }
                     </script>
 

@@ -11,6 +11,7 @@ import java.io.PrintWriter;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -28,10 +29,10 @@ public class CreateReservationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         response.setContentType("text/html");
-        int userId = Integer.parseInt(request.getParameter("flightId"));
-        String takeOffAirport = request.getParameter("takeoff_airport");
-        String takeoff_date = request.getParameter("takeoff_date");
-        String takeoff_time = request.getParameter("takeoff_date");
+        int userId = Integer.parseInt(request.getParameter("uid"));
+        String takeOffAirport = request.getParameter("takeoffAir");
+        String takeoff_date = request.getParameter("takeoffDate");
+        String takeoff_time = request.getParameter("takeoffTime");
         String landing_airport = request.getParameter("landing_airport");
         String cost = request.getParameter("cost");
 
@@ -43,9 +44,14 @@ public class CreateReservationServlet extends HttpServlet {
         
         request.setAttribute("message", message);
                     
-                    RequestDispatcher rd = request.getRequestDispatcher("addFlight.jsp");
         try {
-            rd.forward(request, response);
+             FlightAccess flightAccess = new FlightAccess();
+                    List flightDetails = flightAccess.viewAllFlightDetails();
+                    
+                    request.setAttribute("result", flightDetails);
+                    
+                    RequestDispatcher rd = request.getRequestDispatcher("AllFlightDetails.jsp");
+                    rd.forward(request, response);
         } catch (ServletException ex) {
         }
         
