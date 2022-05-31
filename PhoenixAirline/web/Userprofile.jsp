@@ -37,10 +37,14 @@
                 </a>
             </li>
             <li>
-                <a href="html/Userprofile.html">
-                    <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
-                    <span class="title">Profile</span>
-                </a>
+                <form id="prf" method="get" action="ProfileDetailsServlet"> 
+                        
+                     <input type="hidden" name="uid" value="<%=request.getAttribute("uid")%>">
+                        <a href="html/Userprofile.jsp" onclick="goToProfilePage()">                   
+                        <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+                        <span class="title">Profile</span>
+                        </a>
+                 </form>
             </li>
             <!-- <li>
                 <a href="#">
@@ -137,5 +141,14 @@
     <script src="adminmain.js">
         
     </script>
+     <script>
+                        function goToProfilePage() {
+                            document.getElementById("prf").submit();
+                        }
+                        
+                        function showFlightDetails() {
+                            document.getElementById("x").submit();
+                        }
+                    </script>
 </body>
 </html>

@@ -25,7 +25,7 @@ public class ProfileDetailsServlet extends HttpServlet {
                     PrintWriter out = response.getWriter();
                     out.print(userDetails);
                     
-                    RequestDispatcher rd = request.getRequestDispatcher("Userprofile.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("html/Userprofile.jsp");
                     request.setAttribute("result", userDetails);
                     request.setAttribute("userName", userDetails.get(4));
                     rd.forward(request, response);
