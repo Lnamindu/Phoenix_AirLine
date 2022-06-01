@@ -171,6 +171,14 @@
         <servlet-name>CreateReservationServlet</servlet-name>
         <servlet-class>com.phoenixairline.controllers.ticketmanagement.CreateReservationServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SearchReservation</servlet-name>
+        <servlet-class>com.phoenixairline.models.SearchReservation</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateReservation</servlet-name>
+        <servlet-class>com.phoenixairline.controllers.ticketmanagement.UpdateReservation</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddFlightInfoServlet</servlet-name>
         <url-pattern>/AddFlightInfoServlet</url-pattern>
@@ -338,6 +346,14 @@
     <servlet-mapping>
         <servlet-name>CreateReservationServlet</servlet-name>
         <url-pattern>/CreateReservationServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchReservation</servlet-name>
+        <url-pattern>/SearchReservation</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateReservation</servlet-name>
+        <url-pattern>/UpdateReservation</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

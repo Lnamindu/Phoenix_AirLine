@@ -69,12 +69,11 @@
         <table>
             <thead>
                 <tr>
-                        <th>User First Name</th>
+                        <th>User Id</th>
                         <th>Takeoff Airport</th>
-                        <th>Landing Airport</th>
                         <th>Takeoff Date</th>
                         <th>Takeoff Time</th>
-                        <th>Seat Number</th>
+                        <th>landing_airport</th>
                         <th>Total Price</th>
                     </tr>
             <td></td>
@@ -95,10 +94,7 @@
                         <td><%=itr.next()%></td>
                         <td><%=itr.next()%></td>
                         <td><%=itr.next()%></td>
-                        <td><%=itr.next()%></td>
                         <td>
-                            <input type="hidden" name="ticket_id" value="" />
-                            <input class="status ok" type="submit" value="Update" />
                             
                         </td>
                     </tr>

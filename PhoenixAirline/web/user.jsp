@@ -40,6 +40,7 @@
                 </form>>
             </li>
             <li>
+                <!--<a href="<%=request.getContextPath()%>/SelectTicketSer //vlet">-->
                 <a href="<%=request.getContextPath()%>/SelectTicketServlet">
                     <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
                     <span class="title">Reservations</span>

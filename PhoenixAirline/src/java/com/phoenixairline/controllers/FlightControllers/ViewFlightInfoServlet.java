@@ -40,7 +40,7 @@ public class ViewFlightInfoServlet extends HttpServlet {
                     
                     RequestDispatcher rd = request.getRequestDispatcher("AllFlightDetails.jsp");
                     rd.forward(request, response);
-                } catch (ServletException | IOException ex) {
+                } catch (Exception ex) {
                     System.out.println(ex);
                 }
             

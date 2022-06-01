@@ -54,13 +54,16 @@ public class CreateTicketServlet extends HttpServlet {
         int userId = (int) session.getAttribute("user_id");
         System.out.println("user id from session " + userId);
         
+        PrintWriter out=response.getWriter();
+        out.print(userId);
+        
         System.out.println("before send");
         Ticket ticketBean = new Ticket(ticketId,price,userId,flightId,seatId,classId);
         TicketAccess ticketAccess = new TicketAccess();
 
         System.out.println("After send");
         String result = ticketAccess.createTicket(ticketBean);
-        PrintWriter out = response.getWriter();
+//        PrintWriter out = response.getWriter();
         System.out.println(result);
         
         RequestDispatcher rd = request.getRequestDispatcher("Booking.jsp");
