@@ -30,6 +30,7 @@ public class CreateReservationServlet extends HttpServlet {
 
         response.setContentType("text/html");
         int userId = Integer.parseInt(request.getParameter("uid"));
+        System.out.println(userId);
         String takeOffAirport = request.getParameter("takeoffAir");
         String takeoff_date = request.getParameter("takeoffDate");
         String takeoff_time = request.getParameter("takeoffTime");

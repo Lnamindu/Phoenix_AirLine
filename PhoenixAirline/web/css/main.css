@@ -305,6 +305,16 @@ body
 
 }
 
+  .status.edit
+{
+    padding: 2px 8px;
+    border-radius:10px ;
+    font-size:14px;
+    font-weight: 400;
+    border: #fff;
+
+}
+
 .status.ok:hover
 {
     background: rgb(12, 176, 25);

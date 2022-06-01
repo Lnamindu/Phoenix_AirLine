@@ -21,9 +21,11 @@
     <body>
         <div class="container">
             <jsp:include page="navBarAdmin.jsp"/>
+        </div>
             
             
             <div class="main"style="background-image:url( media/home.jpg); background-size: cover;">
+                <div class="topbar"></div>
                
                  <!--=============flight management============-->
         <div class="details">

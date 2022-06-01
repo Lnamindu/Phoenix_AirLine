@@ -31,10 +31,9 @@
             <!--end navbar-->
             
 
-       
- <br><br><br><br><br>
+ 
             <!--===========Main=============-->
-      <div class="main">
+      <div class="main" style="background-image:url( media/home.jpg); background-size: cover;">
         <form  action="SearchUsers_aServlet" method="POST">
           <div class="topbar">
               
@@ -111,10 +110,10 @@
               <form action="UpdateBlockUserAdminServlet" method="post">
                   <input type="hidden" name="uid" value="<%=itr.next()%>"/>
 
-                    <td> <input type="text" name="fName" style="border-style: hidden; "  value="<%=itr.next()%>"></td>
-                    <td> <input type="text" name="lName" style="border-style: hidden; "  value="<%=itr.next()%>"></td>
-                    <td> <input type="text" name="email" style="border-style: hidden; "  value="<%=itr.next()%>"></td>
-                    <td> <input type="text" name="userName" style="border-style: hidden;"  value="<%=itr.next()%>"></td>
+                  <td> <input class="status edit" type="text" name="fName" style="border-style: hidden; "  value="<%=itr.next()%>"></td>
+                    <td> <input class="status edit" type="text" name="lName" style="border-style: hidden; "  value="<%=itr.next()%>"></td>
+                    <td> <input class="status edit" type="text" name="email" style="border-style: hidden; "  value="<%=itr.next()%>"></td>
+                    <td> <input class="status edit" type="text" name="userName" style="border-style: hidden;"  value="<%=itr.next()%>"></td>
                     <td><%=itr.next()%></td>
                     <td><%=itr.next()%></td>
                   <td>

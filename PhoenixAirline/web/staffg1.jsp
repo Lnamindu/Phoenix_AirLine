@@ -10,7 +10,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>User Informations</title>
+    <title>User Information</title>
     <!--main (css)-->
     <link rel="stylesheet" href="css/main.css" />
     <!--(css)-->
@@ -109,10 +109,10 @@
               <form action="UpdateBlockUsreServlet" method="post">
                   <input type="hidden" name="uid" value="<%=itr.next()%>"/>
 
-                    <td> <input type="text" name="fName" style="border-style: hidden; "  value="<%=itr.next()%>"></td>
-                    <td> <input type="text" name="lName" style="border-style: hidden; "  value="<%=itr.next()%>"></td>
-                    <td> <input type="text" name="email" style="border-style: hidden; "  value="<%=itr.next()%>"></td>
-                    <td> <input type="text" name="userName" style="border-style: hidden;"  value="<%=itr.next()%>"></td>
+                  <td> <input class="status edit" type="text" name="fName" style="border-style: hidden; "  value="<%=itr.next()%>"></td>
+                    <td> <input class="status edit" type="text" name="lName" style="border-style: hidden; "  value="<%=itr.next()%>"></td>
+                    <td> <input class="status edit" type="text" name="email" style="border-style: hidden; "  value="<%=itr.next()%>"></td>
+                    <td> <input class="status edit" type="text" name="userName" style="border-style: hidden;"  value="<%=itr.next()%>"></td>
                     <td><%=itr.next()%></td>
                     <td><%=itr.next()%></td>
                   <td>
